@@ -1,47 +1,61 @@
-/* --- Конвертація довжини --- */
+// ===== Conversion Functions =====
 function convertLength() {
-    let value = parseFloat(document.getElementById("lengthValue").value);
-    let from = document.getElementById("lengthFrom").value;
-    let to = document.getElementById("lengthTo").value;
+    const value = parseFloat(document.getElementById('lengthInput').value) || 0;
+    const from = document.getElementById('lengthUnitFrom').value;
+    const to = document.getElementById('lengthUnitTo').value;
 
-    if (isNaN(value)) {
-        document.getElementById("lengthResult").innerText = "Введіть число!";
-        return;
-    }
+    let meters = from === 'm' ? value : from === 'km' ? value * 1000 : value / 100;
+    let result = to === 'm' ? meters : to === 'km' ? meters / 1000 : meters * 100;
 
-    let meters = value;
-
-    if (from === "cm") meters /= 100;
-    if (from === "mm") meters /= 1000;
-    if (from === "km") meters *= 1000;
-
-    if (to === "cm") meters *= 100;
-    if (to === "mm") meters *= 1000;
-    if (to === "km") meters /= 1000;
-
-    document.getElementById("lengthResult").innerText = "Результат: " + meters;
+    document.getElementById('lengthResult').textContent = result.toFixed(2);
 }
 
-/* --- Конвертація ваги --- */
 function convertWeight() {
-    let value = parseFloat(document.getElementById("weightValue").value);
-    let from = document.getElementById("weightFrom").value;
-    let to = document.getElementById("weightTo").value;
+    const value = parseFloat(document.getElementById('weightInput').value) || 0;
+    const from = document.getElementById('weightUnitFrom').value;
+    const to = document.getElementById('weightUnitTo').value;
 
-    if (isNaN(value)) {
-        document.getElementById("weightResult").innerText = "Введіть число!";
-        return;
-    }
+    let kg = from === 'kg' ? value : from === 'g' ? value / 1000 : value * 0.453592;
+    let result = to === 'kg' ? kg : to === 'g' ? kg * 1000 : kg / 0.453592;
 
-    let kg = value;
-
-    if (from === "g") kg /= 1000;
-    if (from === "mg") kg /= 1000000;
-    if (from === "lb") kg *= 0.453592;
-
-    if (to === "g") kg *= 1000;
-    if (to === "mg") kg *= 1000000;
-    if (to === "lb") kg /= 0.453592;
-
-    document.getElementById("weightResult").innerText = "Результат: " + kg;
+    document.getElementById('weightResult').textContent = result.toFixed(2);
 }
+
+function convertTemp() {
+    const value = parseFloat(document.getElementById('tempInput').value) || 0;
+    const from = document.getElementById('tempUnitFrom').value;
+    const to = document.getElementById('tempUnitTo').value;
+
+    let result = from === 'C' && to === 'F' ? (value * 9/5 + 32) :
+                 from === 'F' && to === 'C' ? ((value - 32) * 5/9) : value;
+
+    document.getElementById('tempResult').textContent = result.toFixed(2);
+}
+
+function convertVolume() {
+    const value = parseFloat(document.getElementById('volumeInput').value) || 0;
+    const from = document.getElementById('volumeUnitFrom').value;
+    const to = document.getElementById('volumeUnitTo').value;
+
+    let liters = from === 'l' ? value : from === 'ml' ? value / 1000 : value * 1000;
+    let result = to === 'l' ? liters : to === 'ml' ? liters * 1000 : liters / 1000;
+
+    document.getElementById('volumeResult').textContent = result.toFixed(2);
+}
+
+// ===== Live Conversion =====
+const inputs = [
+    'lengthInput', 'lengthUnitFrom', 'lengthUnitTo',
+    'weightInput', 'weightUnitFrom', 'weightUnitTo',
+    'tempInput', 'tempUnitFrom', 'tempUnitTo',
+    'volumeInput', 'volumeUnitFrom', 'volumeUnitTo'
+];
+
+inputs.forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+        convertLength();
+        convertWeight();
+        convertTemp();
+        convertVolume();
+    });
+});
