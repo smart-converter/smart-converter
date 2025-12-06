@@ -1,109 +1,97 @@
-/* ===== Основні налаштування ===== */
+/* ===== Reset & Basics ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    background-color: #f9f9f9;
+    background-color: #f7f7f7;
     color: #333;
     line-height: 1.6;
     padding: 20px;
 }
 
-/* ===== Header та навігація ===== */
-header {
-    background-color: #ffffff;
+/* ===== Container ===== */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
+    border-radius: 8px;
 }
 
-header h1 {
-    font-size: 2rem;
-    color: #2c3e50;
-    margin-bottom: 10px;
+/* ===== Headings ===== */
+h1, h2 {
+    color: #1b3d1b; /* dark green */
+    margin-bottom: 15px;
 }
 
+/* ===== Navigation ===== */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
-nav ul li a {
+nav a {
     text-decoration: none;
-    color: #2980b9;
+    color: #1b3d1b;
     font-weight: bold;
-    transition: color 0.3s;
 }
 
-nav ul li a:hover {
-    color: #e74c3c;
+nav a:hover {
+    color: #76c043; /* lime green */
 }
 
-/* ===== Основний контент ===== */
-main {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+/* ===== Sections ===== */
+.section {
+    margin-bottom: 30px;
 }
 
-main h2 {
-    color: #2c3e50;
+/* ===== Buttons ===== */
+button, .btn {
+    background-color: #1b3d1b;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover, .btn:hover {
+    background-color: #76c043;
+}
+
+/* ===== Inputs & Selects ===== */
+input, select {
+    width: 100%;
+    padding: 12px;
     margin-bottom: 15px;
-}
-
-main p {
-    margin-bottom: 15px;
-    font-size: 1rem;
-}
-
-main ul {
-    list-style-type: disc;
-    padding-left: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
 /* ===== Footer ===== */
 footer {
     text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    font-size: 0.9rem;
-    color: #555;
+    margin-top: 30px;
+    color: #666;
 }
 
-/* ===== Посилання в footer ===== */
-footer a {
-    color: #2980b9;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* ===== Адаптивність ===== */
-@media (max-width: 768px) {
+/* ===== Mobile Adjustments ===== */
+@media (max-width: 500px) {
     nav ul {
         flex-direction: column;
-        gap: 10px;
     }
-
-    body {
-        padding: 10px;
-    }
-
-    main {
-        padding: 20px;
+    input, select, button {
+        font-size: 18px;
+        padding: 14px;
     }
 }
