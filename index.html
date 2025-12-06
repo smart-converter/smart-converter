@@ -7,27 +7,95 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<div class="container">
     <header>
         <h1>Smart Converter</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="#length">Length</a></li>
+                <li><a href="#weight">Weight</a></li>
+                <li><a href="#temperature">Temperature</a></li>
+                <li><a href="#volume">Volume</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <h2>Welcome to Smart Converter</h2>
-            <p>Your easy and fast solution for converting files online.</p>
-        </section>
-    </main>
+    <!-- Length Converter -->
+    <section id="length" class="section">
+        <h2>Length Converter</h2>
+        <input type="number" id="lengthInput" placeholder="Enter value">
+        <select id="lengthUnitFrom">
+            <option value="m">Meters</option>
+            <option value="km">Kilometers</option>
+            <option value="cm">Centimeters</option>
+        </select>
+        <select id="lengthUnitTo">
+            <option value="m">Meters</option>
+            <option value="km">Kilometers</option>
+            <option value="cm">Centimeters</option>
+        </select>
+        <button class="btn" onclick="convertLength()">Convert</button>
+        <p>Result: <span id="lengthResult">0.00</span></p>
+    </section>
+
+    <!-- Weight Converter -->
+    <section id="weight" class="section">
+        <h2>Weight Converter</h2>
+        <input type="number" id="weightInput" placeholder="Enter value">
+        <select id="weightUnitFrom">
+            <option value="kg">Kilograms</option>
+            <option value="g">Grams</option>
+            <option value="lb">Pounds</option>
+        </select>
+        <select id="weightUnitTo">
+            <option value="kg">Kilograms</option>
+            <option value="g">Grams</option>
+            <option value="lb">Pounds</option>
+        </select>
+        <button class="btn" onclick="convertWeight()">Convert</button>
+        <p>Result: <span id="weightResult">0.00</span></p>
+    </section>
+
+    <!-- Temperature Converter -->
+    <section id="temperature" class="section">
+        <h2>Temperature Converter</h2>
+        <input type="number" id="tempInput" placeholder="Enter value">
+        <select id="tempUnitFrom">
+            <option value="C">Celsius</option>
+            <option value="F">Fahrenheit</option>
+        </select>
+        <select id="tempUnitTo">
+            <option value="C">Celsius</option>
+            <option value="F">Fahrenheit</option>
+        </select>
+        <button class="btn" onclick="convertTemp()">Convert</button>
+        <p>Result: <span id="tempResult">0.00</span></p>
+    </section>
+
+    <!-- Volume Converter -->
+    <section id="volume" class="section">
+        <h2>Volume Converter</h2>
+        <input type="number" id="volumeInput" placeholder="Enter value">
+        <select id="volumeUnitFrom">
+            <option value="l">Liters</option>
+            <option value="ml">Milliliters</option>
+            <option value="m3">Cubic meters</option>
+        </select>
+        <select id="volumeUnitTo">
+            <option value="l">Liters</option>
+            <option value="ml">Milliliters</option>
+            <option value="m3">Cubic meters</option>
+        </select>
+        <button class="btn" onclick="convertVolume()">Convert</button>
+        <p>Result: <span id="volumeResult">0.00</span></p>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Smart Converter. All rights reserved.</p>
+        <p>&copy; 2025 Smart Converter</p>
     </footer>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
