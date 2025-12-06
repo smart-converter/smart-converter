@@ -1,4 +1,9 @@
-// ===== Conversion Functions =====
+// ===== Conversion Functions with Dynamic Rounding =====
+function formatResult(value) {
+    if (Math.abs(value) < 1 && value !== 0) return value.toFixed(4);
+    return value.toFixed(2);
+}
+
 function convertLength() {
     const value = parseFloat(document.getElementById('lengthInput').value) || 0;
     const from = document.getElementById('lengthUnitFrom').value;
@@ -7,7 +12,7 @@ function convertLength() {
     let meters = from === 'm' ? value : from === 'km' ? value * 1000 : value / 100;
     let result = to === 'm' ? meters : to === 'km' ? meters / 1000 : meters * 100;
 
-    document.getElementById('lengthResult').textContent = result.toFixed(2);
+    document.getElementById('lengthResult').textContent = formatResult(result);
 }
 
 function convertWeight() {
@@ -18,7 +23,7 @@ function convertWeight() {
     let kg = from === 'kg' ? value : from === 'g' ? value / 1000 : value * 0.453592;
     let result = to === 'kg' ? kg : to === 'g' ? kg * 1000 : kg / 0.453592;
 
-    document.getElementById('weightResult').textContent = result.toFixed(2);
+    document.getElementById('weightResult').textContent = formatResult(result);
 }
 
 function convertTemp() {
@@ -29,7 +34,7 @@ function convertTemp() {
     let result = from === 'C' && to === 'F' ? (value * 9/5 + 32) :
                  from === 'F' && to === 'C' ? ((value - 32) * 5/9) : value;
 
-    document.getElementById('tempResult').textContent = result.toFixed(2);
+    document.getElementById('tempResult').textContent = formatResult(result);
 }
 
 function convertVolume() {
@@ -40,7 +45,7 @@ function convertVolume() {
     let liters = from === 'l' ? value : from === 'ml' ? value / 1000 : value * 1000;
     let result = to === 'l' ? liters : to === 'ml' ? liters * 1000 : liters / 1000;
 
-    document.getElementById('volumeResult').textContent = result.toFixed(2);
+    document.getElementById('volumeResult').textContent = formatResult(result);
 }
 
 // ===== Live Conversion =====
