@@ -34,6 +34,7 @@ function convertValue(value, fromUnit, toUnit, units) {
 // Length
 function convertLength() {
   let value = parseFloat(document.getElementById('length-input').value);
+  if (isNaN(value)) value = 0;
   let from = document.getElementById('length-from').value;
   let to = document.getElementById('length-to').value;
   let result = convertValue(value, from, to, lengthUnits);
@@ -44,6 +45,7 @@ function convertLength() {
 // Weight
 function convertWeight() {
   let value = parseFloat(document.getElementById('weight-input').value);
+  if (isNaN(value)) value = 0;
   let from = document.getElementById('weight-from').value;
   let to = document.getElementById('weight-to').value;
   let result = convertValue(value, from, to, weightUnits);
@@ -54,6 +56,7 @@ function convertWeight() {
 // Temperature
 function convertTemp() {
   let value = parseFloat(document.getElementById('temp-input').value);
+  if (isNaN(value)) value = 0;
   let from = document.getElementById('temp-from').value;
   let to = document.getElementById('temp-to').value;
   let result;
