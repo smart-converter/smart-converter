@@ -1,131 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Converter Pro</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Smart Unit Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+
+<header>
+  <h1>Smart Unit Converter</h1>
+  <nav>
+    <ul>
+      <li><a href="#length">Length</a></li>
+      <li><a href="#weight">Weight</a></li>
+      <li><a href="#temperature">Temperature</a></li>
+      <li><a href="#volume">Volume</a></li>
+    </ul>
+  </nav>
+</header>
+
 <div class="container">
-  <header>
-    <h1>Smart Converter Pro</h1>
-    <nav>
-      <ul>
-        <li><a href="#length">Length</a></li>
-        <li><a href="#weight">Weight</a></li>
-        <li><a href="#temperature">Temperature</a></li>
-        <li><a href="#volume">Volume</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- Length Converter -->
-  <section id="length" class="section card">
-    <h2>Length Converter</h2>
+  <!-- Length -->
+  <section id="length" class="card section">
+    <h2><i class="fas fa-ruler"></i> Length Converter</h2>
     <input type="number" id="lengthInput" placeholder="Amount">
-    <div class="select-row">
-      <select id="lengthUnitFrom">
-        <option value="m">Meter</option>
-        <option value="km">Kilometer</option>
-        <option value="cm">Centimeter</option>
-        <option value="mm">Millimeter</option>
-        <option value="um">Micrometer</option>
-        <option value="nm">Nanometer</option>
-        <option value="mi">Mile</option>
-        <option value="yd">Yard</option>
-        <option value="ft">Foot</option>
-        <option value="in">Inch</option>
-        <option value="ly">Light Year</option>
-      </select>
-      <select id="lengthUnitTo">
-        <option value="m">Meter</option>
-        <option value="km">Kilometer</option>
-        <option value="cm">Centimeter</option>
-        <option value="mm">Millimeter</option>
-        <option value="um">Micrometer</option>
-        <option value="nm">Nanometer</option>
-        <option value="mi">Mile</option>
-        <option value="yd">Yard</option>
-        <option value="ft">Foot</option>
-        <option value="in">Inch</option>
-        <option value="ly">Light Year</option>
-      </select>
-    </div>
+
+    <select id="lengthUnitFrom">
+      <option value="m">Meter</option>
+      <option value="km">Kilometer</option>
+      <option value="cm">Centimeter</option>
+      <option value="mm">Millimeter</option>
+      <option value="um">Micrometer</option>
+      <option value="nm">Nanometer</option>
+      <option value="mi">Mile</option>
+      <option value="yd">Yard</option>
+      <option value="ft">Foot</option>
+      <option value="in">Inch</option>
+      <option value="ly">Light Year</option>
+    </select>
+
+    <select id="lengthUnitTo">
+      <option value="m">Meter</option>
+      <option value="km">Kilometer</option>
+      <option value="cm">Centimeter</option>
+      <option value="mm">Millimeter</option>
+      <option value="um">Micrometer</option>
+      <option value="nm">Nanometer</option>
+      <option value="mi">Mile</option>
+      <option value="yd">Yard</option>
+      <option value="ft">Foot</option>
+      <option value="in">Inch</option>
+      <option value="ly">Light Year</option>
+    </select>
+
     <p>Result: <span id="lengthResult">0</span></p>
+    <button class="convert-btn" onclick="convertLength()">Convert</button>
   </section>
 
-  <!-- Weight Converter -->
-  <section id="weight" class="section card">
-    <h2>Weight Converter</h2>
+  <!-- Weight -->
+  <section id="weight" class="card section">
+    <h2><i class="fas fa-weight-scale"></i> Weight Converter</h2>
     <input type="number" id="weightInput" placeholder="Amount">
-    <div class="select-row">
-      <select id="weightUnitFrom">
-        <option value="kg">Kilogram</option>
-        <option value="g">Gram</option>
-        <option value="mg">Milligram</option>
-        <option value="lb">Pound</option>
-        <option value="oz">Ounce</option>
-      </select>
-      <select id="weightUnitTo">
-        <option value="kg">Kilogram</option>
-        <option value="g">Gram</option>
-        <option value="mg">Milligram</option>
-        <option value="lb">Pound</option>
-        <option value="oz">Ounce</option>
-      </select>
-    </div>
+
+    <select id="weightUnitFrom">
+      <option value="kg">Kilogram</option>
+      <option value="g">Gram</option>
+      <option value="mg">Milligram</option>
+      <option value="lb">Pound</option>
+      <option value="oz">Ounce</option>
+    </select>
+
+    <select id="weightUnitTo">
+      <option value="kg">Kilogram</option>
+      <option value="g">Gram</option>
+      <option value="mg">Milligram</option>
+      <option value="lb">Pound</option>
+      <option value="oz">Ounce</option>
+    </select>
+
     <p>Result: <span id="weightResult">0</span></p>
+    <button class="convert-btn" onclick="convertWeight()">Convert</button>
   </section>
 
-  <!-- Temperature Converter -->
-  <section id="temperature" class="section card">
-    <h2>Temperature Converter</h2>
+  <!-- Temperature -->
+  <section id="temperature" class="card section">
+    <h2><i class="fas fa-temperature-half"></i> Temperature Converter</h2>
     <input type="number" id="tempInput" placeholder="Amount">
-    <div class="select-row">
-      <select id="tempUnitFrom">
-        <option value="C">Celsius</option>
-        <option value="F">Fahrenheit</option>
-        <option value="K">Kelvin</option>
-      </select>
-      <select id="tempUnitTo">
-        <option value="C">Celsius</option>
-        <option value="F">Fahrenheit</option>
-        <option value="K">Kelvin</option>
-      </select>
-    </div>
+
+    <select id="tempUnitFrom">
+      <option value="C">Celsius</option>
+      <option value="F">Fahrenheit</option>
+      <option value="K">Kelvin</option>
+    </select>
+
+    <select id="tempUnitTo">
+      <option value="C">Celsius</option>
+      <option value="F">Fahrenheit</option>
+      <option value="K">Kelvin</option>
+    </select>
+
     <p>Result: <span id="tempResult">0</span></p>
+    <button class="convert-btn" onclick="convertTemp()">Convert</button>
   </section>
 
-  <!-- Volume Converter -->
-  <section id="volume" class="section card">
-    <h2>Volume Converter</h2>
+  <!-- Volume -->
+  <section id="volume" class="card section">
+    <h2><i class="fas fa-glass-water"></i> Volume Converter</h2>
     <input type="number" id="volumeInput" placeholder="Amount">
-    <div class="select-row">
-      <select id="volumeUnitFrom">
-        <option value="l">Liter</option>
-        <option value="ml">Milliliter</option>
-        <option value="m3">Cubic Meter</option>
-        <option value="ft3">Cubic Foot</option>
-        <option value="in3">Cubic Inch</option>
-        <option value="gal">Gallon</option>
-      </select>
-      <select id="volumeUnitTo">
-        <option value="l">Liter</option>
-        <option value="ml">Milliliter</option>
-        <option value="m3">Cubic Meter</option>
-        <option value="ft3">Cubic Foot</option>
-        <option value="in3">Cubic Inch</option>
-        <option value="gal">Gallon</option>
-      </select>
-    </div>
+
+    <select id="volumeUnitFrom">
+      <option value="l">Liter</option>
+      <option value="ml">Milliliter</option>
+      <option value="m3">Cubic Meter</option>
+      <option value="ft3">Cubic Foot</option>
+      <option value="in3">Cubic Inch</option>
+      <option value="gal">Gallon (US)</option>
+    </select>
+
+    <select id="volumeUnitTo">
+      <option value="l">Liter</option>
+      <option value="ml">Milliliter</option>
+      <option value="m3">Cubic Meter</option>
+      <option value="ft3">Cubic Foot</option>
+      <option value="in3">Cubic Inch</option>
+      <option value="gal">Gallon (US)</option>
+    </select>
+
     <p>Result: <span id="volumeResult">0</span></p>
+    <button class="convert-btn" onclick="convertVolume()">Convert</button>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Smart Converter Pro</p>
-  </footer>
 </div>
+
+<footer>
+  <p>© 2025 Smart Unit Converter</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
