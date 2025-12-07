@@ -1,60 +1,71 @@
+// Length conversion in meters
 const lengthUnits = {
-  m: 1,
-  km: 1000,
-  cm: 0.01,
-  mm: 0.001,
-  um: 1e-6,
-  nm: 1e-9,
-  mi: 1609.344,
-  yd: 0.9144,
-  ft: 0.3048,
-  in: 0.0254,
-  ly: 9.4607e15
+  meter: 1,
+  kilometer: 1000,
+  centimeter: 0.01,
+  millimeter: 0.001,
+  mile: 1609.34,
+  yard: 0.9144,
+  foot: 0.3048,
+  inch: 0.0254
 };
 
+// Weight conversion in grams
 const weightUnits = {
-  kg: 1,
-  g: 0.001,
-  mg: 1e-6,
-  lb: 0.45359237,
-  oz: 0.028349523125
+  gram: 1,
+  kilogram: 1000,
+  pound: 453.592,
+  ounce: 28.3495
 };
 
-const volumeUnits = {
-  l: 1,
-  ml: 0.001,
-  m3: 1000,
-  ft3: 28.316846592,
-  in3: 0.016387064,
-  gal: 3.785411784
-};
+// Animate result
+function animateResult(id) {
+  const el = document.getElementById(id);
+  el.classList.remove("pulse");
+  void el.offsetWidth; // reflow для перезапуску анімації
+  el.classList.add("pulse");
+}
 
+// Generic conversion function
+function convertValue(value, fromUnit, toUnit, units) {
+  return value * units[fromUnit] / units[toUnit];
+}
+
+// Length
 function convertLength() {
-  const v = parseFloat(lengthInput.value) || 0;
-  lengthResult.textContent = (v * lengthUnits[lengthUnitFrom.value]) / lengthUnits[lengthUnitTo.value];
+  let value = parseFloat(document.getElementById('length-input').value);
+  let from = document.getElementById('length-from').value;
+  let to = document.getElementById('length-to').value;
+  let result = convertValue(value, from, to, lengthUnits);
+  document.getElementById('length-result').textContent = result;
+  animateResult('length-result');
 }
 
+// Weight
 function convertWeight() {
-  const v = parseFloat(weightInput.value) || 0;
-  weightResult.textContent = (v * weightUnits[weightUnitFrom.value]) / weightUnits[weightUnitTo.value];
+  let value = parseFloat(document.getElementById('weight-input').value);
+  let from = document.getElementById('weight-from').value;
+  let to = document.getElementById('weight-to').value;
+  let result = convertValue(value, from, to, weightUnits);
+  document.getElementById('weight-result').textContent = result;
+  animateResult('weight-result');
 }
 
-function convertVolume() {
-  const v = parseFloat(volumeInput.value) || 0;
-  volumeResult.textContent = (v * volumeUnits[volumeUnitFrom.value]) / volumeUnits[volumeUnitTo.value];
-}
-
+// Temperature
 function convertTemp() {
-  const v = parseFloat(tempInput.value) || 0;
-  const f = tempUnitFrom.value;
-  const t = tempUnitTo.value;
+  let value = parseFloat(document.getElementById('temp-input').value);
+  let from = document.getElementById('temp-from').value;
+  let to = document.getElementById('temp-to').value;
+  let result;
 
-  let c;
-  if (f === "C") c = v;
-  if (f === "F") c = (v - 32) * 5/9;
-  if (f === "K") c = v - 273.15;
+  if (from === to) result = value;
+  else if (from === 'c' && to === 'f') result = value * 9/5 + 32;
+  else if (from === 'c' && to === 'k') result = value + 273.15;
+  else if (from === 'f' && to === 'c') result = (value - 32) * 5/9;
+  else if (from === 'f' && to === 'k') result = (value - 32) * 5/9 + 273.15;
+  else if (from === 'k' && to === 'c') result = value - 273.15;
+  else if (from === 'k' && to === 'f') result = (value - 273.15) * 9/5 + 32;
 
-  if (t === "C") tempResult.textContent = c;
-  if (t === "F") tempResult.textContent = c * 9/5 + 32;
-  if (t === "K") tempResult.textContent = c + 273.15;
+  document.getElementById('temp-result').textContent = result;
+  animateResult('temp-result');
 }
