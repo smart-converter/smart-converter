@@ -1,63 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Converter</title>
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Unit Converter</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Smart<span class="brand-strong">Converter</span></div>
+      <nav class="top-tabs" role="tablist" aria-label="Converters">
+        <button class="tab active" data-tab="length" role="tab">Length</button>
+        <button class="tab" data-tab="temperature" role="tab">Temp</button>
+        <button class="tab" data-tab="area" role="tab">Area</button>
+        <button class="tab" data-tab="volume" role="tab">Volume</button>
+        <button class="tab" data-tab="weight" role="tab">Weight</button>
+        <button class="tab" data-tab="time" role="tab">Time</button>
+      </nav>
+    </div>
+  </header>
 
-<header class="top-bar">
-    <div class="logo">Smart Converter</div>
-    <div class="menu-icon" id="menuToggle">☰</div>
-</header>
+  <main class="container">
+    <!-- Length -->
+    <section id="length" class="panel active-panel" role="region" aria-labelledby="length-tab">
+      <h1 class="panel-title">Length Converter</h1>
+      <div class="panel-inner">
+        <label class="label">Amount</label>
+        <input id="lengthInput" class="input" type="number" inputmode="decimal" placeholder="e.g. 5">
 
-<nav class="side-menu" id="sideMenu">
-    <a href="index.html">Home</a>
-    <a href="length.html">Length</a>
-    <a href="#">Temperature</a>
-    <a href="#">Area</a>
-    <a href="#">Volume</a>
-    <a href="#">Weight</a>
-    <a href="#">Time</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms</a>
-    <a href="contact.html">Contact</a>
-</nav>
+        <label class="label">From</label>
+        <select id="lengthFrom" class="select"></select>
 
-<div class="overlay" id="overlay"></div>
+        <label class="label">To</label>
+        <select id="lengthTo" class="select"></select>
 
-<main>
-
-    <h1 class="main-title">Unit Converter</h1>
-
-    <!-- UNIVERSAL CONVERTER BLOCK -->
-    <section class="converter-box">
-        <label>Amount:</label>
-        <input type="number" id="valueInput" class="input-field" placeholder="Enter value">
-
-        <label>From:</label>
-        <select id="fromUnit"></select>
-
-        <label>To:</label>
-        <select id="toUnit"></select>
-
-        <button class="convert-btn" onclick="convert()">Convert</button>
-
-        <div class="result-box">
-            <p id="resultText">Result will appear here</p>
+        <div class="result-row">
+          <div class="result-label">Result</div>
+          <div id="lengthResult" class="result-value">0</div>
         </div>
+      </div>
     </section>
 
-</main>
+    <!-- Temperature -->
+    <section id="temperature" class="panel" role="region" aria-labelledby="temperature-tab">
+      <h1 class="panel-title">Temperature Converter</h1>
+      <div class="panel-inner">
+        <label class="label">Amount</label>
+        <input id="tempInput" class="input" type="number" inputmode="decimal" placeholder="e.g. 32">
 
-<footer>
-    <p>© 2025 Smart Converter</p>
-</footer>
+        <label class="label">From</label>
+        <select id="tempFrom" class="select">
+          <option value="C">Celsius</option>
+          <option value="F">Fahrenheit</option>
+          <option value="K">Kelvin</option>
+        </select>
 
-<script src="script.js"></script>
+        <label class="label">To</label>
+        <select id="tempTo" class="select">
+          <option value="C">Celsius</option>
+          <option value="F">Fahrenheit</option>
+          <option value="K">Kelvin</option>
+        </select>
 
+        <div class="result-row">
+          <div class="result-label">Result</div>
+          <div id="tempResult" class="result-value">0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Area -->
+    <section id="area" class="panel" role="region" aria-labelledby="area-tab">
+      <h1 class="panel-title">Area Converter</h1>
+      <div class="panel-inner">
+        <label class="label">Amount</label>
+        <input id="areaInput" class="input" type="number" inputmode="decimal" placeholder="e.g. 10">
+
+        <label class="label">From</label>
+        <select id="areaFrom" class="select"></select>
+
+        <label class="label">To</label>
+        <select id="areaTo" class="select"></select>
+
+        <div class="result-row">
+          <div class="result-label">Result</div>
+          <div id="areaResult" class="result-value">0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Volume -->
+    <section id="volume" class="panel" role="region" aria-labelledby="volume-tab">
+      <h1 class="panel-title">Volume Converter</h1>
+      <div class="panel-inner">
+        <label class="label">Amount</label>
+        <input id="volumeInput" class="input" type="number" inputmode="decimal" placeholder="e.g. 1">
+
+        <label class="label">From</label>
+        <select id="volumeFrom" class="select"></select>
+
+        <label class="label">To</label>
+        <select id="volumeTo" class="select"></select>
+
+        <div class="result-row">
+          <div class="result-label">Result</div>
+          <div id="volumeResult" class="result-value">0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Weight -->
+    <section id="weight" class="panel" role="region" aria-labelledby="weight-tab">
+      <h1 class="panel-title">Weight Converter</h1>
+      <div class="panel-inner">
+        <label class="label">Amount</label>
+        <input id="weightInput" class="input" type="number" inputmode="decimal" placeholder="e.g. 2">
+
+        <label class="label">From</label>
+        <select id="weightFrom" class="select"></select>
+
+        <label class="label">To</label>
+        <select id="weightTo" class="select"></select>
+
+        <div class="result-row">
+          <div class="result-label">Result</div>
+          <div id="weightResult" class="result-value">0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Time -->
+    <section id="time" class="panel" role="region" aria-labelledby="time-tab">
+      <h1 class="panel-title">Time Converter</h1>
+      <div class="panel-inner">
+        <label class="label">Amount</label>
+        <input id="timeInput" class="input" type="number" inputmode="decimal" placeholder="e.g. 60">
+
+        <label class="label">From</label>
+        <select id="timeFrom" class="select"></select>
+
+        <label class="label">To</label>
+        <select id="timeTo" class="select"></select>
+
+        <div class="result-row">
+          <div class="result-label">Result</div>
+          <div id="timeResult" class="result-value">0</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© 2025 Smart Converter</div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
