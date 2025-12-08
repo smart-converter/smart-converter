@@ -1,6 +1,3 @@
-// ===============================
-// LENGTH
-// ===============================
 function convertLength() {
     const input = parseFloat(document.getElementById("length-input").value);
     const from = document.getElementById("length-unit-from").value;
