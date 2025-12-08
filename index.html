@@ -1,180 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Smart Converter — Convert Units Instantly</title>
-
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Converter</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <button class="burger" aria-label="menu">☰</button>
-      <div class="brand"><span class="brand-strong">Smart</span>Converter</div>
-      <div class="spacer"></div>
-      <a class="icon-calculator" href="#length" aria-hidden="true">▦</a>
-    </div>
 
-    <nav class="tabs" role="navigation" aria-label="Converters">
-      <a href="#length" class="tab active">Length</a>
-      <a href="#temperature" class="tab">Temp</a>
-      <a href="#volume" class="tab">Volume</a>
-      <a href="#weight" class="tab">Weight</a>
-      <a href="#time" class="tab">Time</a>
-    </nav>
-  </header>
+<header class="top-bar">
+    <div class="logo">Smart Converter</div>
+    <div class="menu-icon" id="menuToggle">☰</div>
+</header>
 
-  <main class="wrap">
-    <!-- boxed form like professional minimal converters -->
-    <section id="length" class="card converter">
-      <h2 class="card-title">Length Converter</h2>
+<nav class="side-menu" id="sideMenu">
+    <a href="index.html">Home</a>
+    <a href="length.html">Length</a>
+    <a href="#">Temperature</a>
+    <a href="#">Area</a>
+    <a href="#">Volume</a>
+    <a href="#">Weight</a>
+    <a href="#">Time</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-      <div class="form-box">
-        <label class="label">Amount</label>
-        <input id="lengthAmount" type="number" inputmode="decimal" placeholder="Enter amount">
+<div class="overlay" id="overlay"></div>
 
-        <label class="label">From</label>
-        <select id="lengthFrom" class="unit-select">
-          <option value="m">Meter</option>
-          <option value="km">Kilometer</option>
-          <option value="cm">Centimeter</option>
-          <option value="mm">Millimeter</option>
-          <option value="um">Micrometer</option>
-          <option value="nm">Nanometer</option>
-          <option value="mi">Mile</option>
-          <option value="yd">Yard</option>
-          <option value="ft">Foot</option>
-          <option value="in">Inch</option>
-          <option value="ly">Light year</option>
-        </select>
+<main>
 
-        <label class="label">To</label>
-        <select id="lengthTo" class="unit-select">
-          <option value="m">Meter</option>
-          <option value="km">Kilometer</option>
-          <option value="cm">Centimeter</option>
-          <option value="mm">Millimeter</option>
-          <option value="um">Micrometer</option>
-          <option value="nm">Nanometer</option>
-          <option value="mi">Mile</option>
-          <option value="yd">Yard</option>
-          <option value="ft">Foot</option>
-          <option value="in">Inch</option>
-          <option value="ly">Light year</option>
-        </select>
+    <h1 class="main-title">Unit Converter</h1>
 
-        <div class="result-row">
-          <div class="result-label">Result</div>
-          <div id="lengthResult" class="result-value">0</div>
+    <!-- UNIVERSAL CONVERTER BLOCK -->
+    <section class="converter-box">
+        <label>Amount:</label>
+        <input type="number" id="valueInput" class="input-field" placeholder="Enter value">
+
+        <label>From:</label>
+        <select id="fromUnit"></select>
+
+        <label>To:</label>
+        <select id="toUnit"></select>
+
+        <button class="convert-btn" onclick="convert()">Convert</button>
+
+        <div class="result-box">
+            <p id="resultText">Result will appear here</p>
         </div>
-      </div>
     </section>
 
-    <section id="temperature" class="card converter">
-      <h2 class="card-title">Temperature Converter</h2>
-      <div class="form-box">
-        <label class="label">Amount</label>
-        <input id="tempAmount" type="number" inputmode="decimal" placeholder="Enter amount">
+</main>
 
-        <label class="label">From</label>
-        <select id="tempFrom" class="unit-select">
-          <option value="C">Celsius</option>
-          <option value="F">Fahrenheit</option>
-          <option value="K">Kelvin</option>
-        </select>
+<footer>
+    <p>© 2025 Smart Converter</p>
+</footer>
 
-        <label class="label">To</label>
-        <select id="tempTo" class="unit-select">
-          <option value="C">Celsius</option>
-          <option value="F">Fahrenheit</option>
-          <option value="K">Kelvin</option>
-        </select>
+<script src="script.js"></script>
 
-        <div class="result-row">
-          <div class="result-label">Result</div>
-          <div id="tempResult" class="result-value">0</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="volume" class="card converter">
-      <h2 class="card-title">Volume Converter</h2>
-      <div class="form-box">
-        <label class="label">Amount</label>
-        <input id="volumeAmount" type="number" inputmode="decimal" placeholder="Enter amount">
-
-        <label class="label">From</label>
-        <select id="volumeFrom" class="unit-select">
-          <option value="l">Liter</option>
-          <option value="ml">Milliliter</option>
-          <option value="m3">Cubic meter</option>
-          <option value="ft3">Cubic foot</option>
-          <option value="in3">Cubic inch</option>
-          <option value="gal">Gallon (US)</option>
-        </select>
-
-        <label class="label">To</label>
-        <select id="volumeTo" class="unit-select">
-          <option value="l">Liter</option>
-          <option value="ml">Milliliter</option>
-          <option value="m3">Cubic meter</option>
-          <option value="ft3">Cubic foot</option>
-          <option value="in3">Cubic inch</option>
-          <option value="gal">Gallon (US)</option>
-        </select>
-
-        <div class="result-row">
-          <div class="result-label">Result</div>
-          <div id="volumeResult" class="result-value">0</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="weight" class="card converter">
-      <h2 class="card-title">Weight Converter</h2>
-      <div class="form-box">
-        <label class="label">Amount</label>
-        <input id="weightAmount" type="number" inputmode="decimal" placeholder="Enter amount">
-
-        <label class="label">From</label>
-        <select id="weightFrom" class="unit-select">
-          <option value="kg">Kilogram</option>
-          <option value="g">Gram</option>
-          <option value="mg">Milligram</option>
-          <option value="lb">Pound</option>
-          <option value="oz">Ounce</option>
-        </select>
-
-        <label class="label">To</label>
-        <select id="weightTo" class="unit-select">
-          <option value="kg">Kilogram</option>
-          <option value="g">Gram</option>
-          <option value="mg">Milligram</option>
-          <option value="lb">Pound</option>
-          <option value="oz">Ounce</option>
-        </select>
-
-        <div class="result-row">
-          <div class="result-label">Result</div>
-          <div id="weightResult" class="result-value">0</div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <small>© 2025 Smart Converter</small>
-      <nav class="footer-links">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
