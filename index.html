@@ -8,108 +8,89 @@
 </head>
 <body>
 
-<header>
-    <h1>Unit Converter</h1>
-</header>
+<h1>Smart Converter</h1>
 
-<!-- Navigation Tabs -->
-<div class="converter-tabs">
-    <button class="tab-btn active" data-target="length">Length</button>
-    <button class="tab-btn" data-target="weight">Weight</button>
-    <button class="tab-btn" data-target="temperature">Temperature</button>
-    <button class="tab-btn" data-target="speed">Speed</button>
-    <button class="tab-btn" data-target="area">Area</button>
-    <button class="tab-btn" data-target="volume">Volume</button>
-    <button class="tab-btn" data-target="time">Time</button>
-</div>
+<!-- LENGTH -->
+<div class="converter">
+    <h2>Length</h2>
+    <input type="number" id="length-input" placeholder="Enter value">
 
-<!-- Converter Container -->
-<div id="length" class="converter-box visible">
-    <label>Amount:</label>
-    <input type="number" id="lengthInput" placeholder="Enter value">
-
-    <label>From:</label>
-    <select id="lengthFrom"></select>
-
-    <label>To:</label>
-    <select id="lengthTo"></select>
-
-    <div class="result-box" id="lengthResult">Result: —</div>
-</div>
-
-<div id="weight" class="converter-box hidden">
-    <label>Amount:</label>
-    <input type="number" id="weightInput" placeholder="Enter value">
-    <label>From:</label>
-    <select id="weightFrom"></select>
-    <label>To:</label>
-    <select id="weightTo"></select>
-    <div class="result-box" id="weightResult">Result: —</div>
-</div>
-
-<div id="temperature" class="converter-box hidden">
-    <label>Amount:</label>
-    <input type="number" id="tempInput" placeholder="Enter value">
-    <label>From:</label>
-    <select id="tempFrom">
-        <option value="C">Celsius</option>
-        <option value="F">Fahrenheit</option>
-        <option value="K">Kelvin</option>
+    <select id="length-unit-from">
+        <option value="meter">Meters</option>
+        <option value="kilometer">Kilometers</option>
+        <option value="centimeter">Centimeters</option>
+        <option value="millimeter">Millimeters</option>
+        <option value="micrometer">Micrometers</option>
+        <option value="nanometer">Nanometers</option>
+        <option value="mile">Miles</option>
+        <option value="yard">Yards</option>
+        <option value="foot">Feet</option>
+        <option value="inch">Inches</option>
     </select>
-    <label>To:</label>
-    <select id="tempTo">
-        <option value="C">Celsius</option>
-        <option value="F">Fahrenheit</option>
-        <option value="K">Kelvin</option>
+
+    <select id="length-unit-to">
+        <option value="meter">Meters</option>
+        <option value="kilometer">Kilometers</option>
+        <option value="centimeter">Centimeters</option>
+        <option value="millimeter">Millimeters</option>
+        <option value="micrometer">Micrometers</option>
+        <option value="nanometer">Nanometers</option>
+        <option value="mile">Miles</option>
+        <option value="yard">Yards</option>
+        <option value="foot">Feet</option>
+        <option value="inch">Inches</option>
     </select>
-    <div class="result-box" id="tempResult">Result: —</div>
+
+    <button onclick="convertLength()">Convert</button>
+    <p id="length-result"></p>
 </div>
 
-<div id="speed" class="converter-box hidden">
-    <label>Amount:</label>
-    <input type="number" id="speedInput" placeholder="Enter value">
-    <label>From:</label>
-    <select id="speedFrom"></select>
-    <label>To:</label>
-    <select id="speedTo"></select>
-    <div class="result-box" id="speedResult">Result: —</div>
+<!-- WEIGHT -->
+<div class="converter">
+    <h2>Weight</h2>
+    <input type="number" id="weight-input" placeholder="Enter value">
+
+    <select id="weight-unit-from">
+        <option value="gram">Gram</option>
+        <option value="kilogram">Kilogram</option>
+        <option value="milligram">Milligram</option>
+        <option value="pound">Pound</option>
+        <option value="ounce">Ounce</option>
+    </select>
+
+    <select id="weight-unit-to">
+        <option value="gram">Gram</option>
+        <option value="kilogram">Kilogram</option>
+        <option value="milligram">Milligram</option>
+        <option value="pound">Pound</option>
+        <option value="ounce">Ounce</option>
+    </select>
+
+    <button onclick="convertWeight()">Convert</button>
+    <p id="weight-result"></p>
 </div>
 
-<div id="area" class="converter-box hidden">
-    <label>Amount:</label>
-    <input type="number" id="areaInput" placeholder="Enter value">
-    <label>From:</label>
-    <select id="areaFrom"></select>
-    <label>To:</label>
-    <select id="areaTo"></select>
-    <div class="result-box" id="areaResult">Result: —</div>
-</div>
+<!-- TEMPERATURE -->
+<div class="converter">
+    <h2>Temperature</h2>
+    <input type="number" id="temp-input" placeholder="Enter value">
 
-<div id="volume" class="converter-box hidden">
-    <label>Amount:</label>
-    <input type="number" id="volumeInput" placeholder="Enter value">
-    <label>From:</label>
-    <select id="volumeFrom"></select>
-    <label>To:</label>
-    <select id="volumeTo"></select>
-    <div class="result-box" id="volumeResult">Result: —</div>
-</div>
+    <select id="temp-unit-from">
+        <option value="celsius">Celsius (°C)</option>
+        <option value="fahrenheit">Fahrenheit (°F)</option>
+        <option value="kelvin">Kelvin (K)</option>
+    </select>
 
-<div id="time" class="converter-box hidden">
-    <label>Amount:</label>
-    <input type="number" id="timeInput" placeholder="Enter value">
-    <label>From:</label>
-    <select id="timeFrom"></select>
-    <label>To:</label>
-    <select id="timeTo"></select>
-    <div class="result-box" id="timeResult">Result: —</div>
-</div>
+    <select id="temp-unit-to">
+        <option value="celsius">Celsius (°C)</option>
+        <option value="fahrenheit">Fahrenheit (°F)</option>
+        <option value="kelvin">Kelvin (K)</option>
+    </select>
 
-<footer>
-    <p>© 2025 Smart Converter</p>
-</footer>
+    <button onclick="convertTemperature()">Convert</button>
+    <p id="temp-result"></p>
+</div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
