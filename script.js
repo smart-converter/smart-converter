@@ -1,226 +1,84 @@
-// -------------------------
-// SMART CONVERTER ENGINE
-// -------------------------
-
+// ===============================
 // LENGTH
-const lengthUnits = {
-    "Meter": 1,
-    "Kilometer": 1000,
-    "Centimeter": 0.01,
-    "Millimeter": 0.001,
-    "Micrometer": 0.000001,
-    "Nanometer": 0.000000001,
-    "Mile": 1609.344,
-    "Yard": 0.9144,
-    "Foot": 0.3048,
-    "Inch": 0.0254,
-    "Light Year": 9.4607e15
-};
+// ===============================
+function convertLength() {
+    const input = parseFloat(document.getElementById("length-input").value);
+    const from = document.getElementById("length-unit-from").value;
+    const to = document.getElementById("length-unit-to").value;
 
+    if (isNaN(input)) {
+        document.getElementById("length-result").innerText = "Enter a valid number";
+        return;
+    }
+
+    const units = {
+        meter: 1,
+        kilometer: 1000,
+        centimeter: 0.01,
+        millimeter: 0.001,
+        micrometer: 0.000001,
+        nanometer: 0.000000001,
+        mile: 1609.344,
+        yard: 0.9144,
+        foot: 0.3048,
+        inch: 0.0254
+    };
+
+    const result = input * units[from] / units[to];
+    document.getElementById("length-result").innerText = result;
+}
+
+// ===============================
 // WEIGHT
-const weightUnits = {
-    "Gram": 1,
-    "Kilogram": 1000,
-    "Milligram": 0.001,
-    "Microgram": 0.000001,
-    "Pound": 453.59237,
-    "Ounce": 28.3495231,
-    "Stone": 6350.29318
-};
+// ===============================
+function convertWeight() {
+    const input = parseFloat(document.getElementById("weight-input").value);
+    const from = document.getElementById("weight-unit-from").value;
+    const to = document.getElementById("weight-unit-to").value;
 
-// SPEED
-const speedUnits = {
-    "m/s": 1,
-    "km/h": 0.2777778,
-    "mph": 0.44704,
-    "knot": 0.514444
-};
+    if (isNaN(input)) {
+        document.getElementById("weight-result").innerText = "Enter a valid number";
+        return;
+    }
 
-// AREA
-const areaUnits = {
-    "Square Meter": 1,
-    "Square Kilometer": 1e6,
-    "Square Centimeter": 0.0001,
-    "Square Millimeter": 0.000001,
-    "Hectare": 10000,
-    "Acre": 4046.856
-};
+    const units = {
+        gram: 1,
+        kilogram: 1000,
+        milligram: 0.001,
+        pound: 453.59237,
+        ounce: 28.3495
+    };
 
-// VOLUME
-const volumeUnits = {
-    "Liter": 1,
-    "Milliliter": 0.001,
-    "Cubic Meter": 1000,
-    "Cubic Centimeter": 0.001,
-    "Gallon": 3.78541,
-    "Quart": 0.946353,
-    "Pint": 0.473176,
-    "Cup": 0.24,
-    "Tablespoon": 0.015,
-    "Teaspoon": 0.005
-};
+    const result = input * units[from] / units[to];
+    document.getElementById("weight-result").innerText = result;
+}
 
-// TIME
-const timeUnits = {
-    "Second": 1,
-    "Millisecond": 0.001,
-    "Minute": 60,
-    "Hour": 3600,
-    "Day": 86400,
-    "Week": 604800
-};
+// ===============================
+// TEMPERATURE
+// ===============================
+function convertTemperature() {
+    const input = parseFloat(document.getElementById("temp-input").value);
+    const from = document.getElementById("temp-unit-from").value;
+    const to = document.getElementById("temp-unit-to").value;
 
-// TEMPERATURE (custom formulas)
-const temperatureUnits = ["Celsius", "Fahrenheit", "Kelvin"];
-
-function convertTemperature(value, from, to) {
-    if (from === to) return value;
+    if (isNaN(input)) {
+        document.getElementById("temp-result").innerText = "Enter a valid number";
+        return;
+    }
 
     let celsius;
 
-    if (from === "Celsius") celsius = value;
-    if (from === "Fahrenheit") celsius = (value - 32) * 5/9;
-    if (from === "Kelvin") celsius = value - 273.15;
+    // Convert FROM → Celsius
+    if (from === "celsius") celsius = input;
+    if (from === "fahrenheit") celsius = (input - 32) * 5/9;
+    if (from === "kelvin") celsius = input - 273.15;
 
-    if (to === "Celsius") return celsius;
-    if (to === "Fahrenheit") return celsius * 9/5 + 32;
-    if (to === "Kelvin") return celsius + 273.15;
+    let result;
 
-    return value;
+    // Convert Celsius → TO
+    if (to === "celsius") result = celsius;
+    if (to === "fahrenheit") result = (celsius * 9/5) + 32;
+    if (to === "kelvin") result = celsius + 273.15;
+
+    document.getElementById("temp-result").innerText = result;
 }
-
-
-// -------------------------
-// Fill SELECTs with options
-// -------------------------
-
-function fillSelect(id, units) {
-    const select = document.getElementById(id);
-    for (let u in units) {
-        const opt = document.createElement("option");
-        opt.value = u;
-        opt.textContent = u;
-        select.appendChild(opt);
-    }
-}
-
-function fillSelectArray(id, arr) {
-    const select = document.getElementById(id);
-    arr.forEach(u => {
-        const opt = document.createElement("option");
-        opt.value = u;
-        opt.textContent = u;
-        select.appendChild(opt);
-    });
-}
-
-// LENGTH
-fillSelect("lengthFrom", lengthUnits);
-fillSelect("lengthTo", lengthUnits);
-// WEIGHT
-fillSelect("weightFrom", weightUnits);
-fillSelect("weightTo", weightUnits);
-// SPEED
-fillSelect("speedFrom", speedUnits);
-fillSelect("speedTo", speedUnits);
-// AREA
-fillSelect("areaFrom", areaUnits);
-fillSelect("areaTo", areaUnits);
-// VOLUME
-fillSelect("volumeFrom", volumeUnits);
-fillSelect("volumeTo", volumeUnits);
-// TIME
-fillSelect("timeFrom", timeUnits);
-fillSelect("timeTo", timeUnits);
-// TEMPERATURE
-fillSelectArray("temperatureFrom", temperatureUnits);
-fillSelectArray("temperatureTo", temperatureUnits);
-
-
-// -------------------------
-// Conversion Functions
-// -------------------------
-
-function convert(value, from, to, units) {
-    return value * units[from] / units[to];
-}
-
-
-// -------------------------
-// Event Listeners
-// -------------------------
-
-function addConverter(inputId, fromId, toId, resultId, units) {
-    const input = document.getElementById(inputId);
-    const from = document.getElementById(fromId);
-    const to = document.getElementById(toId);
-    const result = document.getElementById(resultId);
-
-    function update() {
-        const val = parseFloat(input.value);
-        if (isNaN(val)) {
-            result.textContent = "Result: —";
-            return;
-        }
-        const res = convert(val, from.value, to.value, units);
-        result.textContent = "Result: " + res;
-    }
-
-    input.addEventListener("input", update);
-    from.addEventListener("change", update);
-    to.addEventListener("change", update);
-}
-
-// LENGTH
-addConverter("lengthInput", "lengthFrom", "lengthTo", "lengthResult", lengthUnits);
-// WEIGHT
-addConverter("weightInput", "weightFrom", "weightTo", "weightResult", weightUnits);
-// SPEED
-addConverter("speedInput", "speedFrom", "speedTo", "speedResult", speedUnits);
-// AREA
-addConverter("areaInput", "areaFrom", "areaTo", "areaResult", areaUnits);
-// VOLUME
-addConverter("volumeInput", "volumeFrom", "volumeTo", "volumeResult", volumeUnits);
-// TIME
-addConverter("timeInput", "timeFrom", "timeTo", "timeResult", timeUnits);
-
-
-// TEMPERATURE HANDLER
-(function () {
-    const input = document.getElementById("temperatureInput");
-    const from = document.getElementById("temperatureFrom");
-    const to = document.getElementById("temperatureTo");
-    const result = document.getElementById("temperatureResult");
-
-    function updateTemp() {
-        const val = parseFloat(input.value);
-        if (isNaN(val)) {
-            result.textContent = "Result: —";
-            return;
-        }
-        const res = convertTemperature(val, from.value, to.value);
-        result.textContent = "Result: " + res.toFixed(2);
-    }
-
-    input.addEventListener("input", updateTemp);
-    from.addEventListener("change", updateTemp);
-    to.addEventListener("change", updateTemp);
-})();
-
-
-// -------------------------
-// TAB SWITCHING
-// -------------------------
-
-const tabButtons = document.querySelectorAll(".tab-btn");
-const boxes = document.querySelectorAll(".converter-box");
-
-tabButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        document.querySelector(".tab-btn.active").classList.remove("active");
-        btn.classList.add("active");
-
-        boxes.forEach(box => box.classList.add("hidden"));
-        document.getElementById(btn.dataset.target).classList.remove("hidden");
-    });
-});
