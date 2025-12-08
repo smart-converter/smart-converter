@@ -13,7 +13,7 @@ function showResult(id, msg) {
     el.classList.add("show");
 }
 
-// ===== CONVERTER FUNCTIONS =====
+// ===== CONVERTER MAPS =====
 const maps = {
     length: {meter:1, kilometer:1000, centimeter:0.01, millimeter:0.001, mile:1609.344, yard:0.9144, foot:0.3048, inch:0.0254},
     weight: {kg:1, g:0.001, mg:0.000001, lb:0.453592, oz:0.0283495},
@@ -25,7 +25,7 @@ const maps = {
     pressure: {pa:1, bar:100000, atm:101325}
 };
 
-// ===== EVENT LISTENERS =====
+// ===== SETUP FUNCTION FOR EACH CONVERTER =====
 function setupConverter(inputId, fromId, toId, resultId, type) {
     const input = document.getElementById(inputId);
     const from = document.getElementById(fromId);
@@ -34,6 +34,7 @@ function setupConverter(inputId, fromId, toId, resultId, type) {
     function convert() {
         const val = parseFloat(input.value);
         if (isNaN(val)) return showResult(resultId, "Enter valid number");
+
         let result;
 
         if (type === "temperature") {
@@ -63,7 +64,7 @@ function setupConverter(inputId, fromId, toId, resultId, type) {
 }
 
 // ===== INITIALIZE ALL CONVERTERS =====
-window.addEventListener("DOMContentLoaded", ()=>{
+window.addEventListener("DOMContentLoaded", () => {
     setupConverter("lenInput", "lenFrom", "lenTo", "lenResult", "length");
     setupConverter("wInput", "wFrom", "wTo", "wResult", "weight");
     setupConverter("tInput", "tFrom", "tTo", "tResult", "temperature");
