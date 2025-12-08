@@ -70,6 +70,25 @@ const timeUnits = {
     "Week": 604800
 };
 
+// TEMPERATURE (custom formulas)
+const temperatureUnits = ["Celsius", "Fahrenheit", "Kelvin"];
+
+function convertTemperature(value, from, to) {
+    if (from === to) return value;
+
+    let celsius;
+
+    if (from === "Celsius") celsius = value;
+    if (from === "Fahrenheit") celsius = (value - 32) * 5/9;
+    if (from === "Kelvin") celsius = value - 273.15;
+
+    if (to === "Celsius") return celsius;
+    if (to === "Fahrenheit") return celsius * 9/5 + 32;
+    if (to === "Kelvin") return celsius + 273.15;
+
+    return value;
+}
+
 
 // -------------------------
 // Fill SELECTs with options
@@ -83,6 +102,16 @@ function fillSelect(id, units) {
         opt.textContent = u;
         select.appendChild(opt);
     }
+}
+
+function fillSelectArray(id, arr) {
+    const select = document.getElementById(id);
+    arr.forEach(u => {
+        const opt = document.createElement("option");
+        opt.value = u;
+        opt.textContent = u;
+        select.appendChild(opt);
+    });
 }
 
 // LENGTH
@@ -103,6 +132,9 @@ fillSelect("volumeTo", volumeUnits);
 // TIME
 fillSelect("timeFrom", timeUnits);
 fillSelect("timeTo", timeUnits);
+// TEMPERATURE
+fillSelectArray("temperatureFrom", temperatureUnits);
+fillSelectArray("temperatureTo", temperatureUnits);
 
 
 // -------------------------
@@ -139,7 +171,6 @@ function addConverter(inputId, fromId, toId, resultId, units) {
     to.addEventListener("change", update);
 }
 
-
 // LENGTH
 addConverter("lengthInput", "lengthFrom", "lengthTo", "lengthResult", lengthUnits);
 // WEIGHT
@@ -152,6 +183,29 @@ addConverter("areaInput", "areaFrom", "areaTo", "areaResult", areaUnits);
 addConverter("volumeInput", "volumeFrom", "volumeTo", "volumeResult", volumeUnits);
 // TIME
 addConverter("timeInput", "timeFrom", "timeTo", "timeResult", timeUnits);
+
+
+// TEMPERATURE HANDLER
+(function () {
+    const input = document.getElementById("temperatureInput");
+    const from = document.getElementById("temperatureFrom");
+    const to = document.getElementById("temperatureTo");
+    const result = document.getElementById("temperatureResult");
+
+    function updateTemp() {
+        const val = parseFloat(input.value);
+        if (isNaN(val)) {
+            result.textContent = "Result: —";
+            return;
+        }
+        const res = convertTemperature(val, from.value, to.value);
+        result.textContent = "Result: " + res.toFixed(2);
+    }
+
+    input.addEventListener("input", updateTemp);
+    from.addEventListener("change", updateTemp);
+    to.addEventListener("change", updateTemp);
+})();
 
 
 // -------------------------
