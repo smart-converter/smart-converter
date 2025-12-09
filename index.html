@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- BURGER + HEADER -->
     <header>
+        <div class="burger" onclick="openMenu()">☰</div>
         <h1>💡 Smart Converter</h1>
     </header>
+
+    <!-- SIDE MENU -->
+    <div id="sideMenu">
+        <a href="index.html">🏠 Home</a>
+        <a href="contacts.html">📨 Contacts</a>
+        <a href="#">ℹ About</a>
+        <a href="#">⚙ Settings</a>
+    </div>
+
+    <!-- DARK BACKDROP -->
+    <div id="menuBackdrop" style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: none;
+        z-index: 998;
+    " onclick="closeMenu()"></div>
 
     <main>
         <!-- LENGTH -->
@@ -93,6 +114,17 @@
             <p class="result" id="temp-result"></p>
         </div>
     </main>
+
+    <script>
+        function openMenu() {
+            document.getElementById("sideMenu").style.left = "0";
+            document.getElementById("menuBackdrop").style.display = "block";
+        }
+        function closeMenu() {
+            document.getElementById("sideMenu").style.left = "-250px";
+            document.getElementById("menuBackdrop").style.display = "none";
+        }
+    </script>
 
     <script src="script.js"></script>
 </body>
