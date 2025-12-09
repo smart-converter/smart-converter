@@ -1,15 +1,28 @@
 // ===== BURGER MENU =====
+const menu = document.getElementById("sideMenu");
+
 function toggleMenu() {
-    const menu = document.getElementById("sideMenu");
-    menu.style.left = (menu.style.left === "0px") ? "-250px" : "0px";
+    menu.classList.toggle("open");
+
+    // Заборонити скрол при відкритому меню
+    document.body.style.overflow = menu.classList.contains("open") ? "hidden" : "auto";
 }
+
+// Закриття меню при кліку поза ним
+document.addEventListener("click", function(e) {
+    if (!menu.contains(e.target) && !e.target.classList.contains("burger")) {
+        if (menu.classList.contains("open")) {
+            toggleMenu();
+        }
+    }
+});
 
 // ===== RESULT HELPER =====
 function showResult(id, msg) {
     const el = document.getElementById(id);
     el.classList.remove("show");
     el.innerHTML = `<span class="result-label">Result:</span> ${msg}`;
-    void el.offsetWidth; // trigger reflow for animation
+    void el.offsetWidth; 
     el.classList.add("show");
 }
 
@@ -39,20 +52,19 @@ function setupConverter(inputId, fromId, toId, resultId, type) {
 
         if (type === "temperature") {
             let c;
-            if(from.value === "c") c = val;
-            else if(from.value === "f") c = (val-32)*5/9;
-            else if(from.value === "k") c = val-273.15;
+            if (from.value === "c") c = val;
+            else if (from.value === "f") c = (val - 32) * 5/9;
+            else if (from.value === "k") c = val - 273.15;
 
-            if(to.value === "c") result = c;
-            else if(to.value === "f") result = c*9/5+32;
-            else if(to.value === "k") result = c+273.15;
-        } else if(type === "fuel") {
-            if(from.value === "l100" && to.value === "mpg") result = 235.215/val;
-            else if(from.value === "mpg" && to.value === "l100") result = 235.215/val;
-            else result = val;
+            if (to.value === "c") result = c;
+            else if (to.value === "f") result = c * 9/5 + 32;
+            else if (to.value === "k") result = c + 273.15;
+
+        } else if (type === "fuel") {
+            result = 235.215 / val;
         } else {
             const map = maps[type];
-            result = val*map[from.value]/map[to.value];
+            result = val * map[from.value] / map[to.value];
         }
 
         showResult(resultId, `${val} ${from.value} → ${result} ${to.value}`);
