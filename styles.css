@@ -5,6 +5,7 @@ body {
     color: #f0f0f0;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* щоб меню не тягнуло сторінку */
 }
 
 header {
@@ -35,17 +36,22 @@ header h1 {
     transform: scale(1.2);
 }
 
+
 /* === SIDE MENU === */
 #sideMenu {
     position: fixed;
-    left: -250px;
+    left: -240px;               /* приховано */
     top: 0;
     width: 220px;
     height: 100%;
     background: #1e1e1e;
     padding-top: 60px;
-    transition: left 0.3s ease;
+    transition: left 0.3s ease; /* плавне відкриття */
     z-index: 999;
+}
+
+#sideMenu.open {
+    left: 0;                    /* відкрите меню */
 }
 
 #sideMenu a {
@@ -62,12 +68,14 @@ header h1 {
     transform: translateX(5px);
 }
 
+
 /* === MAIN === */
 main {
     max-width: 700px;
     margin: 20px auto;
     padding: 0 15px;
 }
+
 
 /* === CONVERTER BLOCKS === */
 .converter {
@@ -102,6 +110,7 @@ input[type="number"]:focus, select:focus {
     box-shadow: 0 0 10px #0d6efd;
 }
 
+
 /* === RESULT === */
 .result {
     font-size: 1.4rem;
@@ -130,6 +139,7 @@ input[type="number"]:focus, select:focus {
     margin-right: 5px;
 }
 
+
 /* === FOOTER === */
 footer {
     text-align: center;
@@ -149,6 +159,7 @@ footer a {
 footer a:hover {
     color: #0d6efd;
 }
+
 
 /* === RESPONSIVE === */
 @media screen and (max-width: 600px) {
