@@ -6,126 +6,146 @@
     <title>Smart Converter</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    <!-- BURGER + HEADER -->
+    <!-- HEADER -->
     <header>
-        <div class="burger" onclick="openMenu()">☰</div>
-        <h1>💡 Smart Converter</h1>
+        <div class="burger" onclick="toggleMenu()">☰</div>
+        <h1>Smart Converter</h1>
     </header>
 
     <!-- SIDE MENU -->
-    <div id="sideMenu">
-        <a href="index.html">🏠 Home</a>
-        <a href="contacts.html">📨 Contacts</a>
-        <a href="#">ℹ About</a>
-        <a href="#">⚙ Settings</a>
-    </div>
+    <nav id="sideMenu">
+        <a href="#">Length</a>
+        <a href="#">Weight</a>
+        <a href="#">Temperature</a>
+        <a href="#">Volume</a>
+        <a href="#">Area</a>
+        <a href="#">Speed</a>
+        <a href="#">Time</a>
+        <a href="#">Energy</a>
+        <a href="#">Pressure</a>
+        <a href="#">Fuel</a>
+        <a href="#">About</a>
+        <a href="#">Contacts</a>
+    </nav>
 
-    <!-- DARK BACKDROP -->
-    <div id="menuBackdrop" style="
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.5);
-        display: none;
-        z-index: 998;
-    " onclick="closeMenu()"></div>
+    <!-- OVERLAY (auto closes menu when tapped) -->
+    <div id="overlay" onclick="toggleMenu()" style="
+        display:none;
+        position:fixed;
+        top:0; left:0;
+        width:100%; height:100%;
+        background:rgba(0,0,0,0.5);
+        z-index:900;
+    "></div>
 
     <main>
+
         <!-- LENGTH -->
         <div class="converter">
             <h2>Length</h2>
-            <input type="number" id="length-input" placeholder="Enter value">
-            <div class="selectors">
-                <select id="length-unit-from">
-                    <option value="meter">Meters</option>
-                    <option value="kilometer">Kilometers</option>
-                    <option value="centimeter">Centimeters</option>
-                    <option value="millimeter">Millimeters</option>
-                    <option value="micrometer">Micrometers</option>
-                    <option value="nanometer">Nanometers</option>
-                    <option value="mile">Miles</option>
-                    <option value="yard">Yards</option>
-                    <option value="foot">Feet</option>
-                    <option value="inch">Inches</option>
-                </select>
+            <input type="number" id="lenInput" placeholder="Enter value">
 
-                <select id="length-unit-to">
-                    <option value="meter">Meters</option>
-                    <option value="kilometer">Kilometers</option>
-                    <option value="centimeter">Centimeters</option>
-                    <option value="millimeter">Millimeters</option>
-                    <option value="micrometer">Micrometers</option>
-                    <option value="nanometer">Nanometers</option>
-                    <option value="mile">Miles</option>
-                    <option value="yard">Yards</option>
-                    <option value="foot">Feet</option>
-                    <option value="inch">Inches</option>
-                </select>
-            </div>
-            <button onclick="convertLength()">Convert</button>
-            <p class="result" id="length-result"></p>
+            <select id="lenFrom">
+                <option value="meter">Meters</option>
+                <option value="kilometer">Kilometers</option>
+                <option value="centimeter">Centimeters</option>
+                <option value="millimeter">Millimeters</option>
+                <option value="micrometer">Micrometers</option>
+                <option value="nanometer">Nanometers</option>
+                <option value="mile">Miles</option>
+                <option value="yard">Yards</option>
+                <option value="foot">Feet</option>
+                <option value="inch">Inches</option>
+            </select>
+
+            <select id="lenTo">
+                <option value="meter">Meters</option>
+                <option value="kilometer">Kilometers</option>
+                <option value="centimeter">Centimeters</option>
+                <option value="millimeter">Millimeters</option>
+                <option value="micrometer">Micrometers</option>
+                <option value="nanometer">Nanometers</option>
+                <option value="mile">Miles</option>
+                <option value="yard">Yards</option>
+                <option value="foot">Feet</option>
+                <option value="inch">Inches</option>
+            </select>
+
+            <p class="result" id="lenResult"></p>
         </div>
 
         <!-- WEIGHT -->
         <div class="converter">
             <h2>Weight</h2>
-            <input type="number" id="weight-input" placeholder="Enter value">
-            <div class="selectors">
-                <select id="weight-unit-from">
-                    <option value="gram">Gram</option>
-                    <option value="kilogram">Kilogram</option>
-                    <option value="milligram">Milligram</option>
-                    <option value="pound">Pound</option>
-                    <option value="ounce">Ounce</option>
-                </select>
+            <input type="number" id="wInput" placeholder="Enter value">
 
-                <select id="weight-unit-to">
-                    <option value="gram">Gram</option>
-                    <option value="kilogram">Kilogram</option>
-                    <option value="milligram">Milligram</option>
-                    <option value="pound">Pound</option>
-                    <option value="ounce">Ounce</option>
-                </select>
-            </div>
-            <button onclick="convertWeight()">Convert</button>
-            <p class="result" id="weight-result"></p>
+            <select id="wFrom">
+                <option value="kg">Kilograms</option>
+                <option value="g">Grams</option>
+                <option value="mg">Milligrams</option>
+                <option value="lb">Pounds</option>
+                <option value="oz">Ounces</option>
+            </select>
+
+            <select id="wTo">
+                <option value="kg">Kilograms</option>
+                <option value="g">Grams</option>
+                <option value="mg">Milligrams</option>
+                <option value="lb">Pounds</option>
+                <option value="oz">Ounces</option>
+            </select>
+
+            <p class="result" id="wResult"></p>
         </div>
 
         <!-- TEMPERATURE -->
         <div class="converter">
             <h2>Temperature</h2>
-            <input type="number" id="temp-input" placeholder="Enter value">
-            <div class="selectors">
-                <select id="temp-unit-from">
-                    <option value="celsius">Celsius (°C)</option>
-                    <option value="fahrenheit">Fahrenheit (°F)</option>
-                    <option value="kelvin">Kelvin (K)</option>
-                </select>
+            <input type="number" id="tInput" placeholder="Enter value">
 
-                <select id="temp-unit-to">
-                    <option value="celsius">Celsius (°C)</option>
-                    <option value="fahrenheit">Fahrenheit (°F)</option>
-                    <option value="kelvin">Kelvin (K)</option>
-                </select>
-            </div>
-            <button onclick="convertTemperature()">Convert</button>
-            <p class="result" id="temp-result"></p>
+            <select id="tFrom">
+                <option value="c">Celsius (°C)</option>
+                <option value="f">Fahrenheit (°F)</option>
+                <option value="k">Kelvin (K)</option>
+            </select>
+
+            <select id="tTo">
+                <option value="c">Celsius (°C)</option>
+                <option value="f">Fahrenheit (°F)</option>
+                <option value="k">Kelvin (K)</option>
+            </select>
+
+            <p class="result" id="tResult"></p>
         </div>
+
     </main>
 
+    <footer>
+        © 2025 Smart Converter |
+        <a href="#">About</a> |
+        <a href="#">Contacts</a>
+    </footer>
+
+    <script src="script.js"></script>
+
     <script>
-        function openMenu() {
-            document.getElementById("sideMenu").style.left = "0";
-            document.getElementById("menuBackdrop").style.display = "block";
-        }
-        function closeMenu() {
-            document.getElementById("sideMenu").style.left = "-250px";
-            document.getElementById("menuBackdrop").style.display = "none";
+        // Overwrite toggleMenu to also toggle overlay
+        function toggleMenu() {
+            const menu = document.getElementById("sideMenu");
+            const overlay = document.getElementById("overlay");
+
+            if (menu.classList.contains("open")) {
+                menu.classList.remove("open");
+                overlay.style.display = "none";
+            } else {
+                menu.classList.add("open");
+                overlay.style.display = "block";
+            }
         }
     </script>
 
-    <script src="script.js"></script>
 </body>
 </html>
