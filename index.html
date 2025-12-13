@@ -1,153 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Converter</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Converter</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="burger" onclick="toggleMenu()">☰</div>
-        <h1>Smart Converter</h1>
-    </header>
+<header>
+    <div class="burger" onclick="toggleMenu()">☰</div>
+    <h1>Smart Converter</h1>
+</header>
 
-    <!-- SIDE MENU -->
-    <nav id="sideMenu">
-        <a href="#">Length</a>
-        <a href="#">Weight</a>
-        <a href="#">Temperature</a>
-        <a href="#">Volume</a>
-        <a href="#">Area</a>
-        <a href="#">Speed</a>
-        <a href="#">Time</a>
-        <a href="#">Energy</a>
-        <a href="#">Pressure</a>
-        <a href="#">Fuel</a>
-        <a href="#">About</a>
-        <a href="#">Contacts</a>
-    </nav>
+<nav id="sideMenu">
+    <a onclick="openConverter('length')">Length</a>
+    <a onclick="openConverter('weight')">Weight</a>
+    <a onclick="openConverter('temperature')">Temperature</a>
+    <a onclick="openConverter('volume')">Volume</a>
+    <a onclick="openConverter('area')">Area</a>
+    <a onclick="openConverter('speed')">Speed</a>
+    <a onclick="openConverter('time')">Time</a>
+    <a onclick="openConverter('energy')">Energy</a>
+    <a onclick="openConverter('pressure')">Pressure</a>
+    <a onclick="openConverter('fuel')">Fuel</a>
+    <a href="about.html">About</a>
+    <a href="contacts.html">Contacts</a>
+</nav>
 
-    <!-- OVERLAY (auto closes menu when tapped) -->
-    <div id="overlay" onclick="toggleMenu()" style="
-        display:none;
-        position:fixed;
-        top:0; left:0;
-        width:100%; height:100%;
-        background:rgba(0,0,0,0.5);
-        z-index:900;
-    "></div>
+<div id="overlay" onclick="toggleMenu()"></div>
 
-    <main>
+<main>
 
-        <!-- LENGTH -->
-        <div class="converter">
-            <h2>Length</h2>
-            <input type="number" id="lenInput" placeholder="Enter value">
+<!-- TEMPLATE -->
+<div class="converter" id="length">
+<h2>Length</h2>
+<input type="number" id="lenInput">
+<select id="lenFrom">
+<option value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+<option value="centimeter">Centimeter</option>
+<option value="millimeter">Millimeter</option>
+<option value="mile">Mile</option>
+<option value="yard">Yard</option>
+<option value="foot">Foot</option>
+<option value="inch">Inch</option>
+</select>
+<select id="lenTo">
+<option value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+<option value="centimeter">Centimeter</option>
+<option value="millimeter">Millimeter</option>
+<option value="mile">Mile</option>
+<option value="yard">Yard</option>
+<option value="foot">Foot</option>
+<option value="inch">Inch</option>
+</select>
+<p class="result" id="lenResult"></p>
+</div>
 
-            <select id="lenFrom">
-                <option value="meter">Meters</option>
-                <option value="kilometer">Kilometers</option>
-                <option value="centimeter">Centimeters</option>
-                <option value="millimeter">Millimeters</option>
-                <option value="micrometer">Micrometers</option>
-                <option value="nanometer">Nanometers</option>
-                <option value="mile">Miles</option>
-                <option value="yard">Yards</option>
-                <option value="foot">Feet</option>
-                <option value="inch">Inches</option>
-            </select>
+<div class="converter" id="weight">
+<h2>Weight</h2>
+<input type="number" id="wInput">
+<select id="wFrom"><option value="kg">kg</option><option value="g">g</option><option value="mg">mg</option><option value="lb">lb</option><option value="oz">oz</option></select>
+<select id="wTo"><option value="kg">kg</option><option value="g">g</option><option value="mg">mg</option><option value="lb">lb</option><option value="oz">oz</option></select>
+<p class="result" id="wResult"></p>
+</div>
 
-            <select id="lenTo">
-                <option value="meter">Meters</option>
-                <option value="kilometer">Kilometers</option>
-                <option value="centimeter">Centimeters</option>
-                <option value="millimeter">Millimeters</option>
-                <option value="micrometer">Micrometers</option>
-                <option value="nanometer">Nanometers</option>
-                <option value="mile">Miles</option>
-                <option value="yard">Yards</option>
-                <option value="foot">Feet</option>
-                <option value="inch">Inches</option>
-            </select>
+<div class="converter" id="temperature">
+<h2>Temperature</h2>
+<input type="number" id="tInput">
+<select id="tFrom"><option value="c">°C</option><option value="f">°F</option><option value="k">K</option></select>
+<select id="tTo"><option value="c">°C</option><option value="f">°F</option><option value="k">K</option></select>
+<p class="result" id="tResult"></p>
+</div>
 
-            <p class="result" id="lenResult"></p>
-        </div>
+<div class="converter" id="volume"><h2>Volume</h2><input id="vInput"><select id="vFrom"><option value="l">Liter</option><option value="ml">ml</option><option value="m3">m³</option></select><select id="vTo"><option value="l">Liter</option><option value="ml">ml</option><option value="m3">m³</option></select><p class="result" id="vResult"></p></div>
 
-        <!-- WEIGHT -->
-        <div class="converter">
-            <h2>Weight</h2>
-            <input type="number" id="wInput" placeholder="Enter value">
+<div class="converter" id="area"><h2>Area</h2><input id="aInput"><select id="aFrom"><option value="m2">m²</option><option value="km2">km²</option><option value="cm2">cm²</option></select><select id="aTo"><option value="m2">m²</option><option value="km2">km²</option><option value="cm2">cm²</option></select><p class="result" id="aResult"></p></div>
 
-            <select id="wFrom">
-                <option value="kg">Kilograms</option>
-                <option value="g">Grams</option>
-                <option value="mg">Milligrams</option>
-                <option value="lb">Pounds</option>
-                <option value="oz">Ounces</option>
-            </select>
+<div class="converter" id="speed"><h2>Speed</h2><input id="sInput"><select id="sFrom"><option value="mps">m/s</option><option value="kph">km/h</option><option value="mph">mph</option></select><select id="sTo"><option value="mps">m/s</option><option value="kph">km/h</option><option value="mph">mph</option></select><p class="result" id="sResult"></p></div>
 
-            <select id="wTo">
-                <option value="kg">Kilograms</option>
-                <option value="g">Grams</option>
-                <option value="mg">Milligrams</option>
-                <option value="lb">Pounds</option>
-                <option value="oz">Ounces</option>
-            </select>
+<div class="converter" id="time"><h2>Time</h2><input id="tiInput"><select id="tiFrom"><option value="sec">sec</option><option value="min">min</option><option value="hr">hour</option></select><select id="tiTo"><option value="sec">sec</option><option value="min">min</option><option value="hr">hour</option></select><p class="result" id="tiResult"></p></div>
 
-            <p class="result" id="wResult"></p>
-        </div>
+<div class="converter" id="energy"><h2>Energy</h2><input id="eInput"><select id="eFrom"><option value="j">J</option><option value="kj">kJ</option><option value="cal">cal</option></select><select id="eTo"><option value="j">J</option><option value="kj">kJ</option><option value="cal">cal</option></select><p class="result" id="eResult"></p></div>
 
-        <!-- TEMPERATURE -->
-        <div class="converter">
-            <h2>Temperature</h2>
-            <input type="number" id="tInput" placeholder="Enter value">
+<div class="converter" id="pressure"><h2>Pressure</h2><input id="pInput"><select id="pFrom"><option value="pa">Pa</option><option value="bar">bar</option><option value="atm">atm</option></select><select id="pTo"><option value="pa">Pa</option><option value="bar">bar</option><option value="atm">atm</option></select><p class="result" id="pResult"></p></div>
 
-            <select id="tFrom">
-                <option value="c">Celsius (°C)</option>
-                <option value="f">Fahrenheit (°F)</option>
-                <option value="k">Kelvin (K)</option>
-            </select>
+<div class="converter" id="fuel"><h2>Fuel</h2><input id="fInput"><select id="fFrom"><option value="l100">L/100km</option><option value="mpg">MPG</option></select><select id="fTo"><option value="l100">L/100km</option><option value="mpg">MPG</option></select><p class="result" id="fResult"></p></div>
 
-            <select id="tTo">
-                <option value="c">Celsius (°C)</option>
-                <option value="f">Fahrenheit (°F)</option>
-                <option value="k">Kelvin (K)</option>
-            </select>
+</main>
 
-            <p class="result" id="tResult"></p>
-        </div>
+<footer>© 2025 Smart Converter</footer>
 
-    </main>
-
-    <footer>
-        © 2025 Smart Converter |
-        <a href="#">About</a> |
-        <a href="#">Contacts</a>
-    </footer>
-
-    <script src="script.js"></script>
-
-    <script>
-        // Overwrite toggleMenu to also toggle overlay
-        function toggleMenu() {
-            const menu = document.getElementById("sideMenu");
-            const overlay = document.getElementById("overlay");
-
-            if (menu.classList.contains("open")) {
-                menu.classList.remove("open");
-                overlay.style.display = "none";
-            } else {
-                menu.classList.add("open");
-                overlay.style.display = "block";
-            }
-        }
-    </script>
-
+<script src="script.js"></script>
 </body>
 </html>
-
-
