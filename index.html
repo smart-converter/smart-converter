@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Smart Converter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Converter</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -15,99 +15,153 @@
 </header>
 
 <nav id="sideMenu">
-    <a href="#length">📏 Length</a>
-    <a href="#temperature">🌡 Temperature</a>
-    <a href="#weight">⚖️ Weight</a>
-    <a href="#volume">🧪 Volume</a>
-    <a href="#area">📐 Area</a>
-    <a href="#speed">🚗 Speed</a>
-    <a href="#time">⏱ Time</a>
-    <a href="#energy">⚡ Energy</a>
-    <a href="#pressure">🌬 Pressure</a>
-    <a href="#fuel">⛽ Fuel</a>
+    <a href="#length" onclick="toggleMenu()">📏 Length</a>
+    <a href="#weight" onclick="toggleMenu()">⚖️ Weight</a>
+    <a href="#temperature" onclick="toggleMenu()">🌡 Temperature</a>
+    <a href="#energy" onclick="toggleMenu()">⚡ Energy</a>
+    <a href="#pressure" onclick="toggleMenu()">🧭 Pressure</a>
+    <a href="#fuel" onclick="toggleMenu()">⛽ Fuel</a>
 </nav>
 
 <div id="overlay" onclick="toggleMenu()"></div>
 
 <main>
 
+<!-- LENGTH -->
+<div class="converter length" id="length">
+<h2>📏 Length</h2>
+<input id="lenInput" type="number" placeholder="Amount">
+
+<label>From</label>
+<select id="lenFrom">
+<option value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+<option value="centimeter">Centimeter</option>
+<option value="millimeter">Millimeter</option>
+</select>
+
+<label>To</label>
+<select id="lenTo">
+<option value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+<option value="centimeter">Centimeter</option>
+<option value="millimeter">Millimeter</option>
+</select>
+
+<p class="result" id="lenResult"></p>
+</div>
+
+<!-- WEIGHT -->
+<div class="converter weight" id="weight">
+<h2>⚖️ Weight</h2>
+<input id="wInput" type="number" placeholder="Amount">
+
+<label>From</label>
+<select id="wFrom">
+<option value="kilogram">Kilogram</option>
+<option value="gram">Gram</option>
+<option value="pound">Pound</option>
+</select>
+
+<label>To</label>
+<select id="wTo">
+<option value="kilogram">Kilogram</option>
+<option value="gram">Gram</option>
+<option value="pound">Pound</option>
+</select>
+
+<p class="result" id="wResult"></p>
+</div>
+
+<!-- TEMPERATURE -->
+<div class="converter temperature" id="temperature">
+<h2>🌡 Temperature</h2>
+<input id="tInput" type="number" placeholder="Amount">
+
+<label>From</label>
+<select id="tFrom">
+<option value="c">Celsius</option>
+<option value="f">Fahrenheit</option>
+<option value="k">Kelvin</option>
+</select>
+
+<label>To</label>
+<select id="tTo">
+<option value="c">Celsius</option>
+<option value="f">Fahrenheit</option>
+<option value="k">Kelvin</option>
+</select>
+
+<p class="result" id="tResult"></p>
+</div>
+
 <!-- ENERGY -->
-<div class="converter" id="energy">
-    <h2>⚡ Energy Converter</h2>
+<div class="converter energy" id="energy">
+<h2>⚡ Energy</h2>
+<input id="eInput" type="number" placeholder="Amount">
 
-    <label>Amount</label>
-    <input type="number" id="eInput">
+<label>From</label>
+<select id="eFrom">
+<option value="joule">Joule</option>
+<option value="kilojoule">Kilojoule</option>
+</select>
 
-    <label>From</label>
-    <select id="eFrom">
-        <option value="j">Joule</option>
-        <option value="kj">Kilojoule</option>
-        <option value="cal">Calorie</option>
-    </select>
+<label>To</label>
+<select id="eTo">
+<option value="joule">Joule</option>
+<option value="kilojoule">Kilojoule</option>
+</select>
 
-    <label>To</label>
-    <select id="eTo">
-        <option value="kj">Kilojoule</option>
-        <option value="j">Joule</option>
-        <option value="cal">Calorie</option>
-    </select>
-
-    <p class="result" id="eResult"></p>
+<p class="result" id="eResult"></p>
 </div>
 
 <!-- PRESSURE -->
-<div class="converter" id="pressure">
-    <h2>🌬 Pressure Converter</h2>
+<div class="converter pressure" id="pressure">
+<h2>🧭 Pressure</h2>
+<input id="pInput" type="number" placeholder="Amount">
 
-    <label>Amount</label>
-    <input type="number" id="pInput">
+<label>From</label>
+<select id="pFrom">
+<option value="pascal">Pascal</option>
+<option value="bar">Bar</option>
+</select>
 
-    <label>From</label>
-    <select id="pFrom">
-        <option value="pa">Pascal</option>
-        <option value="bar">Bar</option>
-        <option value="atm">Atmosphere</option>
-    </select>
+<label>To</label>
+<select id="pTo">
+<option value="pascal">Pascal</option>
+<option value="bar">Bar</option>
+</select>
 
-    <label>To</label>
-    <select id="pTo">
-        <option value="bar">Bar</option>
-        <option value="pa">Pascal</option>
-        <option value="atm">Atmosphere</option>
-    </select>
-
-    <p class="result" id="pResult"></p>
+<p class="result" id="pResult"></p>
 </div>
 
 <!-- FUEL -->
-<div class="converter" id="fuel">
-    <h2>⛽ Fuel Converter</h2>
+<div class="converter fuel" id="fuel">
+<h2>⛽ Fuel</h2>
+<input id="fInput" type="number" placeholder="Amount">
 
-    <label>Amount</label>
-    <input type="number" id="fInput">
+<label>From</label>
+<select id="fFrom">
+<option value="l100">Liters / 100km</option>
+<option value="mpg">Miles per gallon</option>
+</select>
 
-    <label>From</label>
-    <select id="fFrom">
-        <option value="l100">Liters / 100km</option>
-        <option value="mpg">Miles per gallon</option>
-    </select>
+<label>To</label>
+<select id="fTo">
+<option value="mpg">Miles per gallon</option>
+<option value="l100">Liters / 100km</option>
+</select>
 
-    <label>To</label>
-    <select id="fTo">
-        <option value="mpg">Miles per gallon</option>
-        <option value="l100">Liters / 100km</option>
-    </select>
-
-    <p class="result" id="fResult"></p>
+<p class="result" id="fResult"></p>
 </div>
 
 </main>
 
 <footer>
-    © 2025 Smart Converter |
-    <a href="contacts.html">Contact</a> |
-    <a href="privacy.html">Privacy</a> |
-    <a href="terms.html">Terms</a>
+© 2025 Smart Converter |
+<a href="contacts.html">Contacts</a> |
+<a href="privacy.html">Privacy</a> |
+<a href="terms.html">Terms</a>
 </footer>
 
 <script src="script.js"></script>
