@@ -31,178 +31,83 @@
 
 <main>
 
-<!-- LENGTH -->
-<div class="converter" id="length">
-    <h2>📏 Length Converter</h2>
+<!-- ENERGY -->
+<div class="converter" id="energy">
+    <h2>⚡ Energy Converter</h2>
 
     <label>Amount</label>
-    <input type="number" id="lenInput" placeholder="Enter amount">
+    <input type="number" id="eInput">
 
     <label>From</label>
-    <select id="lenFrom">
-        <option value="meter">Meter</option>
-        <option value="kilometer">Kilometer</option>
-        <option value="centimeter">Centimeter</option>
-        <option value="millimeter">Millimeter</option>
+    <select id="eFrom">
+        <option value="j">Joule</option>
+        <option value="kj">Kilojoule</option>
+        <option value="cal">Calorie</option>
     </select>
 
     <label>To</label>
-    <select id="lenTo">
-        <option value="kilometer">Kilometer</option>
-        <option value="meter">Meter</option>
-        <option value="centimeter">Centimeter</option>
-        <option value="millimeter">Millimeter</option>
+    <select id="eTo">
+        <option value="kj">Kilojoule</option>
+        <option value="j">Joule</option>
+        <option value="cal">Calorie</option>
     </select>
 
-    <p class="result" id="lenResult"></p>
+    <p class="result" id="eResult"></p>
 </div>
 
-<!-- TEMPERATURE -->
-<div class="converter" id="temperature">
-    <h2>🌡 Temperature Converter</h2>
+<!-- PRESSURE -->
+<div class="converter" id="pressure">
+    <h2>🌬 Pressure Converter</h2>
 
     <label>Amount</label>
-    <input type="number" id="tInput" placeholder="Enter amount">
+    <input type="number" id="pInput">
 
     <label>From</label>
-    <select id="tFrom">
-        <option value="c">Celsius</option>
-        <option value="f">Fahrenheit</option>
-        <option value="k">Kelvin</option>
+    <select id="pFrom">
+        <option value="pa">Pascal</option>
+        <option value="bar">Bar</option>
+        <option value="atm">Atmosphere</option>
     </select>
 
     <label>To</label>
-    <select id="tTo">
-        <option value="f">Fahrenheit</option>
-        <option value="c">Celsius</option>
-        <option value="k">Kelvin</option>
+    <select id="pTo">
+        <option value="bar">Bar</option>
+        <option value="pa">Pascal</option>
+        <option value="atm">Atmosphere</option>
     </select>
 
-    <p class="result" id="tResult"></p>
+    <p class="result" id="pResult"></p>
 </div>
 
-<!-- WEIGHT -->
-<div class="converter" id="weight">
-    <h2>⚖️ Weight Converter</h2>
+<!-- FUEL -->
+<div class="converter" id="fuel">
+    <h2>⛽ Fuel Converter</h2>
 
     <label>Amount</label>
-    <input type="number" id="wInput" placeholder="Enter amount">
+    <input type="number" id="fInput">
 
     <label>From</label>
-    <select id="wFrom">
-        <option value="kg">Kilogram</option>
-        <option value="g">Gram</option>
-        <option value="lb">Pound</option>
+    <select id="fFrom">
+        <option value="l100">Liters / 100km</option>
+        <option value="mpg">Miles per gallon</option>
     </select>
 
     <label>To</label>
-    <select id="wTo">
-        <option value="g">Gram</option>
-        <option value="kg">Kilogram</option>
-        <option value="lb">Pound</option>
+    <select id="fTo">
+        <option value="mpg">Miles per gallon</option>
+        <option value="l100">Liters / 100km</option>
     </select>
 
-    <p class="result" id="wResult"></p>
-</div>
-
-<!-- VOLUME -->
-<div class="converter" id="volume">
-    <h2>🧪 Volume Converter</h2>
-
-    <label>Amount</label>
-    <input type="number" id="vInput">
-
-    <label>From</label>
-    <select id="vFrom">
-        <option value="l">Liter</option>
-        <option value="ml">Milliliter</option>
-        <option value="gallon">Gallon</option>
-    </select>
-
-    <label>To</label>
-    <select id="vTo">
-        <option value="ml">Milliliter</option>
-        <option value="l">Liter</option>
-        <option value="gallon">Gallon</option>
-    </select>
-
-    <p class="result" id="vResult"></p>
-</div>
-
-<!-- AREA -->
-<div class="converter" id="area">
-    <h2>📐 Area Converter</h2>
-
-    <label>Amount</label>
-    <input type="number" id="aInput">
-
-    <label>From</label>
-    <select id="aFrom">
-        <option value="m2">Square Meter</option>
-        <option value="km2">Square Kilometer</option>
-        <option value="ft2">Square Foot</option>
-    </select>
-
-    <label>To</label>
-    <select id="aTo">
-        <option value="ft2">Square Foot</option>
-        <option value="m2">Square Meter</option>
-        <option value="km2">Square Kilometer</option>
-    </select>
-
-    <p class="result" id="aResult"></p>
-</div>
-
-<!-- SPEED -->
-<div class="converter" id="speed">
-    <h2>🚗 Speed Converter</h2>
-
-    <label>Amount</label>
-    <input type="number" id="sInput">
-
-    <label>From</label>
-    <select id="sFrom">
-        <option value="kph">Kilometers per hour</option>
-        <option value="mph">Miles per hour</option>
-    </select>
-
-    <label>To</label>
-    <select id="sTo">
-        <option value="mph">Miles per hour</option>
-        <option value="kph">Kilometers per hour</option>
-    </select>
-
-    <p class="result" id="sResult"></p>
-</div>
-
-<!-- TIME -->
-<div class="converter" id="time">
-    <h2>⏱ Time Converter</h2>
-
-    <label>Amount</label>
-    <input type="number" id="tiInput">
-
-    <label>From</label>
-    <select id="tiFrom">
-        <option value="sec">Second</option>
-        <option value="min">Minute</option>
-        <option value="hr">Hour</option>
-    </select>
-
-    <label>To</label>
-    <select id="tiTo">
-        <option value="min">Minute</option>
-        <option value="sec">Second</option>
-        <option value="hr">Hour</option>
-    </select>
-
-    <p class="result" id="tiResult"></p>
+    <p class="result" id="fResult"></p>
 </div>
 
 </main>
 
 <footer>
-    © 2025 Smart Converter
+    © 2025 Smart Converter |
+    <a href="contacts.html">Contact</a> |
+    <a href="privacy.html">Privacy</a> |
+    <a href="terms.html">Terms</a>
 </footer>
 
 <script src="script.js"></script>
