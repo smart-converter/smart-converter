@@ -5,35 +5,40 @@
     box-sizing: border-box;
 }
 
-/* ===== GLOBAL STABILITY FIX ===== */
+/* ===== GLOBAL ===== */
+:root {
+    --header-height: 70px;
+}
+
 html {
-    overflow-y: scroll;
-    scroll-padding-top: 80px; /* 🔑 ключ до фіксу */
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: Arial, sans-serif;
     background: #111;
     color: #eee;
+    padding-top: var(--header-height);
 }
 
 /* ===== HEADER ===== */
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    height: 70px; /* 🔑 фіксована висота */
-    z-index: 1000;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
     background: #1c1c1c;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1000;
     box-shadow: 0 3px 10px rgba(0,0,0,0.5);
 }
 
 header h1 {
     font-size: 1.8rem;
     color: #0ff;
-    line-height: 1;
 }
 
 /* ===== BURGER ===== */
@@ -53,7 +58,7 @@ header h1 {
     width: 220px;
     height: 100%;
     background: #1a1a1a;
-    padding-top: 70px;
+    padding-top: var(--header-height);
     transition: left 0.3s ease;
     z-index: 999;
 }
@@ -96,4 +101,78 @@ main {
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow:
+    box-shadow: 0 4px 12px rgba(0,255,255,0.2);
+    scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+.converter h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #0ff;
+}
+
+/* ===== INPUTS ===== */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #222;
+    color: #0ff;
+    font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    background: #333;
+    box-shadow: 0 0 10px #0ff;
+}
+
+/* ===== RESULT ===== */
+.result {
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-align: center;
+    background: rgba(0,255,255,0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.result.show {
+    opacity: 1;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #1c1c1c;
+    text-align: center;
+    padding: 15px;
+    color: #aaa;
+}
+
+footer a {
+    color: #0ff;
+    text-decoration: none;
+    margin: 0 6px;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .converter h2 {
+        font-size: 1.3rem;
+    }
+}
