@@ -1,13 +1,14 @@
-/* ===== Reset ===== */
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ===== GLOBAL FIX (ANTI SHIFT) ===== */
+/* ===== GLOBAL STABILITY FIX ===== */
 html {
-    overflow-y: scroll; /* ключове — завжди резервує місце */
+    overflow-y: scroll;
+    scroll-padding-top: 80px; /* 🔑 ключ до фіксу */
 }
 
 body {
@@ -20,9 +21,9 @@ body {
 header {
     position: sticky;
     top: 0;
+    height: 70px; /* 🔑 фіксована висота */
     z-index: 1000;
     background: #1c1c1c;
-    padding: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,6 +33,7 @@ header {
 header h1 {
     font-size: 1.8rem;
     color: #0ff;
+    line-height: 1;
 }
 
 /* ===== BURGER ===== */
@@ -51,7 +53,7 @@ header h1 {
     width: 220px;
     height: 100%;
     background: #1a1a1a;
-    padding-top: 60px;
+    padding-top: 70px;
     transition: left 0.3s ease;
     z-index: 999;
 }
@@ -94,63 +96,4 @@ main {
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,255,255,0.2);
-}
-
-.converter h2 {
-    color: #0ff;
-    margin-bottom: 15px;
-}
-
-/* ===== INPUTS ===== */
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border: none;
-    background: #222;
-    color: #0ff;
-}
-
-input:focus, select:focus {
-    outline: none;
-    box-shadow: 0 0 10px #0ff;
-}
-
-/* ===== RESULT ===== */
-.result {
-    margin-top: 10px;
-    padding: 12px;
-    border-radius: 10px;
-    background: rgba(0,255,255,0.1);
-    font-size: 1.2rem;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.result.show {
-    opacity: 1;
-}
-
-/* ===== FOOTER ===== */
-footer {
-    background: #1c1c1c;
-    text-align: center;
-    padding: 15px;
-    color: #aaa;
-}
-
-footer a {
-    color: #0ff;
-    text-decoration: none;
-    margin: 0 5px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-}
+    box-shadow:
