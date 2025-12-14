@@ -1,8 +1,16 @@
 function toggleMenu(){
     const menu = document.getElementById("sideMenu");
     const overlay = document.getElementById("overlay");
+
     menu.classList.toggle("open");
-    overlay.style.display = menu.classList.contains("open") ? "block" : "none";
+
+    if(menu.classList.contains("open")){
+        overlay.style.display = "block";
+        document.body.classList.add("menu-open");
+    } else {
+        overlay.style.display = "none";
+        document.body.classList.remove("menu-open");
+    }
 }
 
 function menuGo(id){
