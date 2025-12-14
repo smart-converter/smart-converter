@@ -15,20 +15,19 @@
 </header>
 
 <nav id="sideMenu">
-    <a href="#length" onclick="toggleMenu()">📏 Length</a>
-    <a href="#weight" onclick="toggleMenu()">⚖️ Weight</a>
-    <a href="#temperature" onclick="toggleMenu()">🌡 Temperature</a>
-    <a href="#energy" onclick="toggleMenu()">⚡ Energy</a>
-    <a href="#pressure" onclick="toggleMenu()">🧭 Pressure</a>
-    <a href="#fuel" onclick="toggleMenu()">⛽ Fuel</a>
+    <button onclick="openBlock('length')">📏 Length</button>
+    <button onclick="openBlock('weight')">⚖️ Weight</button>
+    <button onclick="openBlock('temperature')">🌡 Temperature</button>
+    <button onclick="openBlock('energy')">⚡ Energy</button>
+    <button onclick="openBlock('pressure')">🧭 Pressure</button>
+    <button onclick="openBlock('fuel')">⛽ Fuel</button>
 </nav>
 
 <div id="overlay" onclick="toggleMenu()"></div>
 
 <main>
 
-<!-- LENGTH -->
-<div class="converter length" id="length">
+<div class="converter" id="length">
 <h2>📏 Length</h2>
 <input id="lenInput" type="number" placeholder="Amount">
 
@@ -37,7 +36,6 @@
 <option value="meter">Meter</option>
 <option value="kilometer">Kilometer</option>
 <option value="centimeter">Centimeter</option>
-<option value="millimeter">Millimeter</option>
 </select>
 
 <label>To</label>
@@ -45,36 +43,33 @@
 <option value="meter">Meter</option>
 <option value="kilometer">Kilometer</option>
 <option value="centimeter">Centimeter</option>
-<option value="millimeter">Millimeter</option>
 </select>
 
 <p class="result" id="lenResult"></p>
 </div>
 
-<!-- WEIGHT -->
-<div class="converter weight" id="weight">
+<div class="converter" id="weight">
 <h2>⚖️ Weight</h2>
 <input id="wInput" type="number" placeholder="Amount">
 
 <label>From</label>
 <select id="wFrom">
-<option value="kilogram">Kilogram</option>
-<option value="gram">Gram</option>
-<option value="pound">Pound</option>
+<option value="kg">Kilogram</option>
+<option value="g">Gram</option>
+<option value="lb">Pound</option>
 </select>
 
 <label>To</label>
 <select id="wTo">
-<option value="kilogram">Kilogram</option>
-<option value="gram">Gram</option>
-<option value="pound">Pound</option>
+<option value="kg">Kilogram</option>
+<option value="g">Gram</option>
+<option value="lb">Pound</option>
 </select>
 
 <p class="result" id="wResult"></p>
 </div>
 
-<!-- TEMPERATURE -->
-<div class="converter temperature" id="temperature">
+<div class="converter" id="temperature">
 <h2>🌡 Temperature</h2>
 <input id="tInput" type="number" placeholder="Amount">
 
@@ -95,48 +90,45 @@
 <p class="result" id="tResult"></p>
 </div>
 
-<!-- ENERGY -->
-<div class="converter energy" id="energy">
+<div class="converter" id="energy">
 <h2>⚡ Energy</h2>
 <input id="eInput" type="number" placeholder="Amount">
 
 <label>From</label>
 <select id="eFrom">
-<option value="joule">Joule</option>
-<option value="kilojoule">Kilojoule</option>
+<option value="j">Joule</option>
+<option value="kj">Kilojoule</option>
 </select>
 
 <label>To</label>
 <select id="eTo">
-<option value="joule">Joule</option>
-<option value="kilojoule">Kilojoule</option>
+<option value="j">Joule</option>
+<option value="kj">Kilojoule</option>
 </select>
 
 <p class="result" id="eResult"></p>
 </div>
 
-<!-- PRESSURE -->
-<div class="converter pressure" id="pressure">
+<div class="converter" id="pressure">
 <h2>🧭 Pressure</h2>
 <input id="pInput" type="number" placeholder="Amount">
 
 <label>From</label>
 <select id="pFrom">
-<option value="pascal">Pascal</option>
+<option value="pa">Pascal</option>
 <option value="bar">Bar</option>
 </select>
 
 <label>To</label>
 <select id="pTo">
-<option value="pascal">Pascal</option>
+<option value="pa">Pascal</option>
 <option value="bar">Bar</option>
 </select>
 
 <p class="result" id="pResult"></p>
 </div>
 
-<!-- FUEL -->
-<div class="converter fuel" id="fuel">
+<div class="converter" id="fuel">
 <h2>⛽ Fuel</h2>
 <input id="fInput" type="number" placeholder="Amount">
 
