@@ -1,53 +1,48 @@
 function toggleMenu(){
-    document.getElementById("sideMenu").classList.toggle("open");
-    document.getElementById("overlay").style.display =
-    document.getElementById("sideMenu").classList.contains("open") ? "block" : "none";
+    const menu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
+    menu.classList.toggle("open");
+    overlay.style.display = menu.classList.contains("open") ? "block" : "none";
 }
 
-function showResult(id, text){
-    const el = document.getElementById(id);
+function openBlock(id){
+    toggleMenu();
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+function showResult(el, text){
     el.innerHTML = text;
     el.classList.add("show");
 }
 
 const maps = {
-    length:{meter:1,kilometer:1000,centimeter:0.01,millimeter:0.001},
-    weight:{kilogram:1,gram:0.001,pound:0.453592},
-    energy:{joule:1,kilojoule:1000},
-    pressure:{pascal:1,bar:100000}
+length:{meter:1,kilometer:1000,centimeter:0.01},
+weight:{kg:1,g:0.001,lb:0.453592},
+energy:{j:1,kj:1000},
+pressure:{pa:1,bar:100000}
 };
 
-function setup(input, from, to, result, type){
-    function convert(){
-        const v = parseFloat(input.value);
+function setup(i,f,t,r,type){
+    function calc(){
+        const v=parseFloat(i.value);
         if(isNaN(v)) return;
 
-        let r;
-
+        let res;
         if(type==="temperature"){
-            let c = from.value==="c"?v:from.value==="f"?(v-32)*5/9:v-273.15;
-            r = to.value==="c"?c:to.value==="f"?c*9/5+32:c+273.15;
-        }
-        else if(type==="fuel"){
-            r = from.value==="l100" ? 235.215/v : 235.215/v;
-        }
-        else{
-            r = v * maps[type][from.value] / maps[type][to.value];
+            let c=f.value==="c"?v:f.value==="f"?(v-32)*5/9:v-273.15;
+            res=t.value==="c"?c:t.value==="f"?c*9/5+32:c+273.15;
+        } else if(type==="fuel"){
+            res=235.215/v;
+        } else {
+            res=v*maps[type][f.value]/maps[type][t.value];
         }
 
-        showResult(result,
-            `From ${from.options[from.selectedIndex].text} → 
-             To ${to.options[to.selectedIndex].text}<br>
-             <strong>Result: ${r.toFixed(6)}</strong>`
-        );
+        showResult(r,`From ${f.options[f.selectedIndex].text} → To ${t.options[t.selectedIndex].text}<br><b>Result: ${res.toFixed(6)}</b>`);
     }
-
-    input.addEventListener("input",convert);
-    from.addEventListener("change",convert);
-    to.addEventListener("change",convert);
+    i.oninput=f.onchange=t.onchange=calc;
 }
 
-window.onload = ()=>{
+window.onload=()=>{
 setup(lenInput,lenFrom,lenTo,lenResult,"length");
 setup(wInput,wFrom,wTo,wResult,"weight");
 setup(tInput,tFrom,tTo,tResult,"temperature");
