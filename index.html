@@ -2,13 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <title>Smart Converter – Free Online Unit Converter</title>
-
-    <meta name="description" content="Smart Converter is a free online unit converter for length, weight, temperature, speed, fuel consumption and more. Fast, accurate and easy to use.">
-
+    <meta name="description" content="Free online unit converter for length, weight, temperature, speed and fuel consumption.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -31,39 +27,128 @@
 
 <main>
 
-    <section class="converter" id="length">
-        <h2>Length Converter</h2>
-        <p>Convert meters, kilometers, centimeters and more.</p>
+<!-- LENGTH -->
+<section class="converter" id="length">
+    <h2>📏 Length Converter</h2>
 
-        <!-- length inputs stay unchanged -->
-    </section>
+    <label>From</label>
+    <input type="number" id="lenInput" placeholder="Enter value">
 
-    <section class="converter" id="weight">
-        <h2>Weight Converter</h2>
-        <p>Convert kilograms, grams, pounds and ounces.</p>
-    </section>
+    <label>From unit</label>
+    <select id="lenFrom">
+        <option value="meter">Meter</option>
+        <option value="kilometer">Kilometer</option>
+        <option value="centimeter">Centimeter</option>
+    </select>
 
-    <section class="converter" id="temperature">
-        <h2>Temperature Converter</h2>
-        <p>Convert Celsius, Fahrenheit and Kelvin.</p>
-    </section>
+    <label>To unit</label>
+    <select id="lenTo">
+        <option value="meter">Meter</option>
+        <option value="kilometer">Kilometer</option>
+        <option value="centimeter">Centimeter</option>
+    </select>
 
-    <section class="converter" id="speed">
-        <h2>Speed Converter</h2>
-        <p>Convert km/h, mph and meters per second.</p>
-    </section>
+    <p class="result" id="lenResult"></p>
+</section>
 
-    <section class="converter" id="fuel">
-        <h2>Fuel Consumption Converter</h2>
-        <p>Convert liters per 100km to miles per gallon.</p>
-    </section>
+<!-- WEIGHT -->
+<section class="converter" id="weight">
+    <h2>⚖️ Weight Converter</h2>
+
+    <label>From</label>
+    <input type="number" id="wInput" placeholder="Enter value">
+
+    <label>From unit</label>
+    <select id="wFrom">
+        <option value="kg">Kilogram</option>
+        <option value="g">Gram</option>
+        <option value="lb">Pound</option>
+    </select>
+
+    <label>To unit</label>
+    <select id="wTo">
+        <option value="kg">Kilogram</option>
+        <option value="g">Gram</option>
+        <option value="lb">Pound</option>
+    </select>
+
+    <p class="result" id="wResult"></p>
+</section>
+
+<!-- TEMPERATURE -->
+<section class="converter" id="temperature">
+    <h2>🌡️ Temperature Converter</h2>
+
+    <label>From</label>
+    <input type="number" id="tInput" placeholder="Enter value">
+
+    <label>From unit</label>
+    <select id="tFrom">
+        <option value="c">Celsius</option>
+        <option value="f">Fahrenheit</option>
+        <option value="k">Kelvin</option>
+    </select>
+
+    <label>To unit</label>
+    <select id="tTo">
+        <option value="c">Celsius</option>
+        <option value="f">Fahrenheit</option>
+        <option value="k">Kelvin</option>
+    </select>
+
+    <p class="result" id="tResult"></p>
+</section>
+
+<!-- SPEED -->
+<section class="converter" id="speed">
+    <h2>🚗 Speed Converter</h2>
+
+    <label>From</label>
+    <input type="number" id="sInput" placeholder="Enter value">
+
+    <label>From unit</label>
+    <select id="sFrom">
+        <option value="kph">Kilometers per hour</option>
+        <option value="mph">Miles per hour</option>
+    </select>
+
+    <label>To unit</label>
+    <select id="sTo">
+        <option value="kph">Kilometers per hour</option>
+        <option value="mph">Miles per hour</option>
+    </select>
+
+    <p class="result" id="sResult"></p>
+</section>
+
+<!-- FUEL -->
+<section class="converter" id="fuel">
+    <h2>⛽ Fuel Converter</h2>
+
+    <label>From</label>
+    <input type="number" id="fInput" placeholder="Enter value">
+
+    <label>From unit</label>
+    <select id="fFrom">
+        <option value="l100">Liters per 100 km</option>
+        <option value="mpg">Miles per gallon</option>
+    </select>
+
+    <label>To unit</label>
+    <select id="fTo">
+        <option value="mpg">Miles per gallon</option>
+        <option value="l100">Liters per 100 km</option>
+    </select>
+
+    <p class="result" id="fResult"></p>
+</section>
 
 </main>
 
 <footer>
     © 2025 Smart Converter |
     <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a> |
+    <a href="contacts.html">Contact</a> |
     <a href="privacy.html">Privacy</a> |
     <a href="terms.html">Terms</a>
 </footer>
