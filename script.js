@@ -1,95 +1,106 @@
-// ================= MENU =================
 function toggleMenu() {
-    const menu = document.getElementById("sideMenu");
-    const overlay = document.getElementById("overlay");
-
-    if (menu.classList.contains("open")) {
-        menu.classList.remove("open");
-        overlay.style.display = "none";
-        document.body.style.overflow = "";
-    } else {
-        menu.classList.add("open");
-        overlay.style.display = "block";
-        document.body.style.overflow = "hidden";
-    }
+    document.getElementById("sideMenu").classList.toggle("open");
+    document.getElementById("overlay").classList.toggle("show");
 }
 
-function menuGo(id) {
-    toggleMenu();
-    document.getElementById(id).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-}
-
-// ================= RESULT =================
-function showResult(el, value) {
-    el.innerHTML = `Result: <b>${value}</b>`;
-    el.classList.add("show");
-}
-
-// ================= MAPS =================
-const maps = {
-    length: {
-        meter: 1,
-        kilometer: 1000,
-        centimeter: 0.01
-    },
-    weight: {
-        kg: 1,
-        g: 0.001,
-        lb: 0.453592
-    },
-    energy: {
-        j: 1,
-        kj: 1000
-    },
-    pressure: {
-        pa: 1,
-        bar: 100000
-    }
+/* ===== LENGTH ===== */
+const lengthUnits = {
+    meter: 1,
+    kilometer: 1000,
+    centimeter: 0.01,
+    millimeter: 0.001,
+    mile: 1609.344,
+    yard: 0.9144,
+    foot: 0.3048,
+    inch: 0.0254
 };
 
-// ================= SETUP =================
-function setup(input, from, to, result, type) {
-    function calc() {
-        const v = parseFloat(input.value);
-        if (isNaN(v)) return;
+function convertLength() {
+    const value = parseFloat(lenInput.value);
+    if (isNaN(value)) return;
 
-        let r;
+    const result =
+        value * lengthUnits[lenFrom.value] / lengthUnits[lenTo.value];
 
-        if (type === "temperature") {
-            let c;
-            if (from.value === "c") c = v;
-            else if (from.value === "f") c = (v - 32) * 5 / 9;
-            else c = v - 273.15;
-
-            if (to.value === "c") r = c;
-            else if (to.value === "f") r = c * 9 / 5 + 32;
-            else r = c + 273.15;
-
-        } else if (type === "fuel") {
-            // L/100km <-> MPG
-            r = 235.215 / v;
-
-        } else {
-            r = v * maps[type][from.value] / maps[type][to.value];
-        }
-
-        showResult(result, r.toFixed(6));
-    }
-
-    input.addEventListener("input", calc);
-    from.addEventListener("change", calc);
-    to.addEventListener("change", calc);
+    lenResult.textContent = "Result: " + result.toFixed(6);
 }
 
-// ================= INIT =================
-window.addEventListener("DOMContentLoaded", () => {
-    setup(lenInput, lenFrom, lenTo, lenResult, "length");
-    setup(wInput, wFrom, wTo, wResult, "weight");
-    setup(tInput, tFrom, tTo, tResult, "temperature");
-    setup(eInput, eFrom, eTo, eResult, "energy");
-    setup(pInput, pFrom, pTo, pResult, "pressure");
-    setup(fInput, fFrom, fTo, fResult, "fuel");
-});
+/* ===== WEIGHT ===== */
+const weightUnits = {
+    kg: 1,
+    g: 0.001,
+    mg: 0.000001,
+    lb: 0.453592,
+    oz: 0.0283495
+};
+
+function convertWeight() {
+    const value = parseFloat(wInput.value);
+    if (isNaN(value)) return;
+
+    const result =
+        value * weightUnits[wFrom.value] / weightUnits[wTo.value];
+
+    wResult.textContent = "Result: " + result.toFixed(6);
+}
+
+/* ===== TEMPERATURE ===== */
+function convertTemperature() {
+    const value = parseFloat(tInput.value);
+    if (isNaN(value)) return;
+
+    let celsius;
+
+    if (tFrom.value === "c") celsius = value;
+    if (tFrom.value === "f") celsius = (value - 32) * 5 / 9;
+    if (tFrom.value === "k") celsius = value - 273.15;
+
+    let result;
+    if (tTo.value === "c") result = celsius;
+    if (tTo.value === "f") result = celsius * 9 / 5 + 32;
+    if (tTo.value === "k") result = celsius + 273.15;
+
+    tResult.textContent = "Result: " + result.toFixed(6);
+}
+
+/* ===== SPEED ===== */
+const speedUnits = {
+    kph: 1,
+    mph: 1.609344,
+    mps: 3.6
+};
+
+function convertSpeed() {
+    const value = parseFloat(sInput.value);
+    if (isNaN(value)) return;
+
+    const result =
+        value * speedUnits[sFrom.value] / speedUnits[sTo.value];
+
+    sResult.textContent = "Result: " + result.toFixed(6);
+}
+
+/* ===== FUEL ===== */
+function convertFuel() {
+    const value = parseFloat(fInput.value);
+    if (isNaN(value)) return;
+
+    let result;
+
+    if (fFrom.value === "l100" && fTo.value === "mpg") {
+        result = 235.214583 / value;
+    } else if (fFrom.value === "mpg" && fTo.value === "l100") {
+        result = 235.214583 / value;
+    } else {
+        result = value;
+    }
+
+    fResult.textContent = "Result: " + result.toFixed(6);
+}
+
+/* ===== EVENTS ===== */
+lenInput.oninput = lenFrom.onchange = lenTo.onchange = convertLength;
+wInput.oninput = wFrom.onchange = wTo.onchange = convertWeight;
+tInput.oninput = tFrom.onchange = tTo.onchange = convertTemperature;
+sInput.oninput = sFrom.onchange = sTo.onchange = convertSpeed;
+fInput.oninput = fFrom.onchange = fTo.onchange = convertFuel;
