@@ -198,3 +198,11 @@ footer a:hover {
 .converter select {
     margin-bottom: 8px;
 }
+.intro-text {
+    max-width: 900px;
+    margin: 15px auto 25px;
+    padding: 10px 15px;
+    color: #bbb;
+    font-size: 0.95rem;
+    text-align: center;
+}
