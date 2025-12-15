@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Smart Converter – Free Online Unit Converter</title>
-
-    <meta name="description" content="Smart Converter is a free online unit converter for length, weight, temperature, speed, fuel consumption and more. Fast, accurate and easy to use.">
-
+    <meta name="description" content="Fast and accurate online unit converter for length, weight, temperature, speed and fuel consumption.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -19,11 +16,11 @@
 </header>
 
 <nav id="sideMenu">
-    <a href="#length">📏 Length</a>
-    <a href="#weight">⚖️ Weight</a>
-    <a href="#temperature">🌡️ Temperature</a>
-    <a href="#speed">🚗 Speed</a>
-    <a href="#fuel">⛽ Fuel</a>
+    <a href="#length" onclick="toggleMenu()">📏 Length</a>
+    <a href="#weight" onclick="toggleMenu()">⚖️ Weight</a>
+    <a href="#temperature" onclick="toggleMenu()">🌡️ Temperature</a>
+    <a href="#speed" onclick="toggleMenu()">🚗 Speed</a>
+    <a href="#fuel" onclick="toggleMenu()">⛽ Fuel</a>
 </nav>
 
 <div id="overlay" onclick="toggleMenu()"></div>
@@ -33,7 +30,9 @@
 <!-- LENGTH -->
 <section class="converter" id="length">
     <h2>Length Converter</h2>
-    <p class="subtitle">Quickly convert meters, kilometers, miles and more.</p>
+
+    <label for="lenInput">Amount</label>
+    <input type="number" id="lenInput" placeholder="Enter value">
 
     <label for="lenFrom">From (unit)</label>
     <select id="lenFrom">
@@ -59,16 +58,15 @@
         <option value="inch">Inch</option>
     </select>
 
-    <label for="lenInput">Amount</label>
-    <input type="number" id="lenInput" placeholder="Enter value">
-
     <p class="result" id="lenResult">Result:</p>
 </section>
 
 <!-- WEIGHT -->
 <section class="converter" id="weight">
     <h2>Weight Converter</h2>
-    <p class="subtitle">Convert kilograms, grams, pounds and more.</p>
+
+    <label for="wInput">Amount</label>
+    <input type="number" id="wInput" placeholder="Enter value">
 
     <label for="wFrom">From (unit)</label>
     <select id="wFrom">
@@ -88,16 +86,15 @@
         <option value="oz">Ounce</option>
     </select>
 
-    <label for="wInput">Amount</label>
-    <input type="number" id="wInput" placeholder="Enter value">
-
     <p class="result" id="wResult">Result:</p>
 </section>
 
 <!-- TEMPERATURE -->
 <section class="converter" id="temperature">
     <h2>Temperature Converter</h2>
-    <p class="subtitle">Convert Celsius, Fahrenheit and Kelvin.</p>
+
+    <label for="tInput">Amount</label>
+    <input type="number" id="tInput" placeholder="Enter value">
 
     <label for="tFrom">From (unit)</label>
     <select id="tFrom">
@@ -113,16 +110,15 @@
         <option value="k">Kelvin</option>
     </select>
 
-    <label for="tInput">Amount</label>
-    <input type="number" id="tInput" placeholder="Enter value">
-
     <p class="result" id="tResult">Result:</p>
 </section>
 
 <!-- SPEED -->
 <section class="converter" id="speed">
     <h2>Speed Converter</h2>
-    <p class="subtitle">Convert km/h, mph and meters per second.</p>
+
+    <label for="sInput">Amount</label>
+    <input type="number" id="sInput" placeholder="Enter value">
 
     <label for="sFrom">From (unit)</label>
     <select id="sFrom">
@@ -138,16 +134,15 @@
         <option value="mps">Meters per second</option>
     </select>
 
-    <label for="sInput">Amount</label>
-    <input type="number" id="sInput" placeholder="Enter value">
-
     <p class="result" id="sResult">Result:</p>
 </section>
 
 <!-- FUEL -->
 <section class="converter" id="fuel">
     <h2>Fuel Consumption Converter</h2>
-    <p class="subtitle">Convert liters per 100 km and miles per gallon.</p>
+
+    <label for="fInput">Amount</label>
+    <input type="number" id="fInput" placeholder="Enter value">
 
     <label for="fFrom">From (unit)</label>
     <select id="fFrom">
@@ -160,9 +155,6 @@
         <option value="mpg">Miles per gallon</option>
         <option value="l100">Liters per 100 km</option>
     </select>
-
-    <label for="fInput">Amount</label>
-    <input type="number" id="fInput" placeholder="Enter value">
 
     <p class="result" id="fResult">Result:</p>
 </section>
