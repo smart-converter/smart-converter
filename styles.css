@@ -176,3 +176,9 @@ footer a:hover {
         font-size: 1.3rem;
     }
 }
+/* Subtitle text under converter title */
+.converter p {
+    color: #9ff;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
