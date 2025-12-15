@@ -1,45 +1,82 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Length Converter – Smart Converter</title>
+
+    <meta name="description" content="Convert length units online. Meters, kilometers, centimeters, miles, yards and more. Fast and accurate length converter.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Конвертер довжини</title>
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
-    <h1>Конвертер довжини</h1>
+    <div class="burger" onclick="toggleMenu()">☰</div>
+    <h1>Smart Converter</h1>
 </header>
 
+<!-- SIDE MENU -->
+<nav id="sideMenu">
+    <a href="length.html">📏 Length Converter</a>
+    <a href="weight.html">⚖️ Weight Converter</a>
+    <a href="temperature.html">🌡️ Temperature Converter</a>
+    <a href="speed.html">🚗 Speed Converter</a>
+    <a href="fuel.html">⛽ Fuel Converter</a>
+</nav>
+
+<!-- OVERLAY -->
+<div id="overlay" onclick="toggleMenu()"></div>
+
+<!-- MAIN -->
 <main>
-    <div class="converter">
-        <label>Значення:</label>
-        <input type="number" id="lengthValue">
 
-        <label>З:</label>
-        <select id="lengthFrom">
-            <option value="m">Метр (м)</option>
-            <option value="cm">Сантиметр (см)</option>
-            <option value="mm">Міліметр (мм)</option>
-            <option value="km">Кілометр (км)</option>
+    <section class="converter">
+        <h2>Length Converter</h2>
+        <p>Convert between different length units easily.</p>
+
+        <label>From</label>
+        <input type="number" id="lenInput" placeholder="Enter value">
+
+        <label>From unit</label>
+        <select id="lenFrom">
+            <option value="meter">Meter</option>
+            <option value="kilometer">Kilometer</option>
+            <option value="centimeter">Centimeter</option>
+            <option value="millimeter">Millimeter</option>
+            <option value="mile">Mile</option>
+            <option value="yard">Yard</option>
+            <option value="foot">Foot</option>
+            <option value="inch">Inch</option>
         </select>
 
-        <label>У:</label>
-        <select id="lengthTo">
-            <option value="m">Метр (м)</option>
-            <option value="cm">Сантиметр (см)</option>
-            <option value="mm">Міліметр (мм)</option>
-            <option value="km">Кілометр (км)</option>
+        <label>To unit</label>
+        <select id="lenTo">
+            <option value="meter">Meter</option>
+            <option value="kilometer">Kilometer</option>
+            <option value="centimeter">Centimeter</option>
+            <option value="millimeter">Millimeter</option>
+            <option value="mile">Mile</option>
+            <option value="yard">Yard</option>
+            <option value="foot">Foot</option>
+            <option value="inch">Inch</option>
         </select>
 
-        <button onclick="convertLength()">Конвертувати</button>
+        <p class="result" id="lenResult"></p>
+    </section>
 
-        <div id="lengthResult" class="result"></div>
-    </div>
-
-    <a class="back" href="index.html">← На головну</a>
 </main>
+
+<!-- FOOTER -->
+<footer>
+    © 2025 Smart Converter |
+    <a href="about.html">About</a> |
+    <a href="contacts.html">Contact</a> |
+    <a href="privacy.html">Privacy</a> |
+    <a href="terms.html">Terms</a>
+</footer>
 
 <script src="script.js"></script>
 </body>
