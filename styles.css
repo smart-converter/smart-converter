@@ -182,3 +182,19 @@ footer a:hover {
     opacity: 0.9;
     margin-bottom: 15px;
 }
+/* === FIX converter order === */
+.converter {
+    display: flex;
+    flex-direction: column;
+}
+
+.converter label {
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.converter input,
+.converter select {
+    margin-bottom: 8px;
+}
