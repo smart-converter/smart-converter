@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Weight Converter – Smart Converter</title>
 
-    <meta name="description" content="Convert between kilograms, grams, pounds, ounces and other weight units quickly and accurately.">
+    <meta name="description" content="Convert between kilograms, grams, pounds and other weight units easily and accurately.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -29,37 +29,44 @@
 
 <main>
 
-    <section class="converter">
-        <h2>Convert Weight Units</h2>
-        <p class="converter-desc">
-            Quickly convert kilograms, grams, pounds and more.
-        </p>
+<section class="converter">
 
-        <label>From (unit)</label>
-        <select id="weightFrom">
-            <option value="kilogram">Kilogram</option>
-            <option value="gram">Gram</option>
-            <option value="milligram">Milligram</option>
-            <option value="pound">Pound</option>
-            <option value="ounce">Ounce</option>
-            <option value="ton">Metric Ton</option>
-        </select>
+    <h2>Convert Weight Units</h2>
+    <p class="converter-desc">
+        Quickly convert kilograms, grams, pounds and more.
+    </p>
 
-        <label>To (unit)</label>
-        <select id="weightTo">
-            <option value="gram">Gram</option>
-            <option value="kilogram">Kilogram</option>
-            <option value="milligram">Milligram</option>
-            <option value="pound">Pound</option>
-            <option value="ounce">Ounce</option>
-            <option value="ton">Metric Ton</option>
-        </select>
+    <label>From (unit)</label>
+    <select id="weightFrom">
+        <option value="Kilogram">Kilogram</option>
+        <option value="Gram">Gram</option>
+        <option value="Milligram">Milligram</option>
+        <option value="Pound">Pound</option>
+        <option value="Ounce">Ounce</option>
+        <option value="Metric Ton">Metric Ton</option>
+    </select>
 
-        <label>Amount</label>
-        <input type="number" id="weightInput" placeholder="Enter value">
+    <label>To (unit)</label>
+    <select id="weightTo">
+        <option value="Gram">Gram</option>
+        <option value="Kilogram">Kilogram</option>
+        <option value="Milligram">Milligram</option>
+        <option value="Pound">Pound</option>
+        <option value="Ounce">Ounce</option>
+        <option value="Metric Ton">Metric Ton</option>
+    </select>
 
-        <div id="weightResult" class="result"></div>
-    </section>
+    <label>Amount</label>
+    <input
+        type="number"
+        id="weightInput"
+        placeholder="Enter amount"
+        oninput="convertWeight()"
+    >
+
+    <div id="weightResult" class="result"></div>
+
+</section>
 
 </main>
 
