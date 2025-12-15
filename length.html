@@ -4,65 +4,70 @@
     <meta charset="UTF-8">
     <title>Length Converter – Smart Converter</title>
 
-    <meta name="description" content="Convert length units online. Meters, kilometers, centimeters, miles, yards and more. Fast and accurate length converter.">
+    <meta name="description" content="Convert meters, kilometers, miles and other length units easily.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
 <header>
     <div class="burger" onclick="toggleMenu()">☰</div>
-    <h1>Smart Converter</h1>
+    <h1>Length Converter</h1>
 </header>
 
 <nav id="sideMenu">
-    <a href="length.html">📏 Length Converter</a>
-    <a href="weight.html">⚖️ Weight Converter</a>
-    <a href="temperature.html">🌡️ Temperature Converter</a>
-    <a href="speed.html">🚗 Speed Converter</a>
-    <a href="fuel.html">⛽ Fuel Converter</a>
+    <a href="length.html">📏 Length</a>
+    <a href="weight.html">⚖️ Weight</a>
+    <a href="temperature.html">🌡️ Temperature</a>
+    <a href="speed.html">🚗 Speed</a>
+    <a href="fuel.html">⛽ Fuel</a>
 </nav>
 
 <div id="overlay" onclick="toggleMenu()"></div>
 
 <main>
+<section class="converter">
 
-    <section class="converter">
-        <h2>Length Converter</h2>
-        <p>Quickly convert meters, kilometers, miles and more.</p>
+    <h2>Convert Length Units</h2>
+    <p class="converter-desc">
+        Quickly convert meters, kilometers, miles and more.
+    </p>
 
-        <label>From</label>
-        <input type="number" id="lenInput" placeholder="Enter value">
+    <label>From (unit)</label>
+    <select id="lenFrom">
+        <option value="meter">Meter</option>
+        <option value="kilometer">Kilometer</option>
+        <option value="centimeter">Centimeter</option>
+        <option value="millimeter">Millimeter</option>
+        <option value="mile">Mile</option>
+        <option value="yard">Yard</option>
+        <option value="foot">Foot</option>
+        <option value="inch">Inch</option>
+    </select>
 
-        <label>From unit</label>
-        <select id="lenFrom">
-            <option value="meter">Meter</option>
-            <option value="kilometer">Kilometer</option>
-            <option value="centimeter">Centimeter</option>
-            <option value="millimeter">Millimeter</option>
-            <option value="mile">Mile</option>
-            <option value="yard">Yard</option>
-            <option value="foot">Foot</option>
-            <option value="inch">Inch</option>
-        </select>
+    <label>To (unit)</label>
+    <select id="lenTo">
+        <option value="kilometer">Kilometer</option>
+        <option value="meter">Meter</option>
+        <option value="centimeter">Centimeter</option>
+        <option value="millimeter">Millimeter</option>
+        <option value="mile">Mile</option>
+        <option value="yard">Yard</option>
+        <option value="foot">Foot</option>
+        <option value="inch">Inch</option>
+    </select>
 
-        <label>To unit</label>
-        <select id="lenTo">
-            <option value="meter">Meter</option>
-            <option value="kilometer">Kilometer</option>
-            <option value="centimeter">Centimeter</option>
-            <option value="millimeter">Millimeter</option>
-            <option value="mile">Mile</option>
-            <option value="yard">Yard</option>
-            <option value="foot">Foot</option>
-            <option value="inch">Inch</option>
-        </select>
+    <label>Amount</label>
+    <input
+        type="number"
+        id="lenInput"
+        placeholder="Enter amount"
+    >
 
-        <p class="result" id="lenResult"></p>
-    </section>
+    <div id="lenResult" class="result"></div>
 
+</section>
 </main>
 
 <footer>
