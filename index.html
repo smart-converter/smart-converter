@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Smart Converter – Free Online Unit Converter</title>
-    <meta name="description" content="Fast and accurate online unit converter for length, weight, temperature, speed and fuel consumption.">
+    <meta name="description" content="Free online unit converter for length, weight, temperature, speed and fuel consumption.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,157 +16,34 @@
 </header>
 
 <nav id="sideMenu">
-    <a href="#length" onclick="toggleMenu()">📏 Length</a>
-    <a href="#weight" onclick="toggleMenu()">⚖️ Weight</a>
-    <a href="#temperature" onclick="toggleMenu()">🌡️ Temperature</a>
-    <a href="#speed" onclick="toggleMenu()">🚗 Speed</a>
-    <a href="#fuel" onclick="toggleMenu()">⛽ Fuel</a>
+    <a href="length.html">📏 Length</a>
+    <a href="weight.html">⚖️ Weight</a>
+    <a href="temperature.html">🌡️ Temperature</a>
+    <a href="speed.html">🚗 Speed</a>
+    <a href="fuel.html">⛽ Fuel</a>
 </nav>
 
 <div id="overlay" onclick="toggleMenu()"></div>
 
-<main>
+<main class="home">
 
-<!-- LENGTH -->
-<section class="converter" id="length">
-    <h2>Length Converter</h2>
+    <h2>Free Online Unit Converter</h2>
 
-    <label for="lenInput">Amount</label>
-    <input type="number" id="lenInput" placeholder="Enter value">
+    <p class="intro">
+        Smart Converter helps you quickly convert everyday measurement units.
+        Choose a converter below to get started.
+    </p>
 
-    <label for="lenFrom">From (unit)</label>
-    <select id="lenFrom">
-        <option value="meter">Meter</option>
-        <option value="kilometer">Kilometer</option>
-        <option value="centimeter">Centimeter</option>
-        <option value="millimeter">Millimeter</option>
-        <option value="mile">Mile</option>
-        <option value="yard">Yard</option>
-        <option value="foot">Foot</option>
-        <option value="inch">Inch</option>
-    </select>
-
-    <label for="lenTo">To (unit)</label>
-    <select id="lenTo">
-        <option value="kilometer">Kilometer</option>
-        <option value="meter">Meter</option>
-        <option value="centimeter">Centimeter</option>
-        <option value="millimeter">Millimeter</option>
-        <option value="mile">Mile</option>
-        <option value="yard">Yard</option>
-        <option value="foot">Foot</option>
-        <option value="inch">Inch</option>
-    </select>
-
-    <p class="result" id="lenResult">Result:</p>
-</section>
-
-<!-- WEIGHT -->
-<section class="converter" id="weight">
-    <h2>Weight Converter</h2>
-
-    <label for="wInput">Amount</label>
-    <input type="number" id="wInput" placeholder="Enter value">
-
-    <label for="wFrom">From (unit)</label>
-    <select id="wFrom">
-        <option value="kg">Kilogram</option>
-        <option value="g">Gram</option>
-        <option value="mg">Milligram</option>
-        <option value="lb">Pound</option>
-        <option value="oz">Ounce</option>
-    </select>
-
-    <label for="wTo">To (unit)</label>
-    <select id="wTo">
-        <option value="g">Gram</option>
-        <option value="kg">Kilogram</option>
-        <option value="mg">Milligram</option>
-        <option value="lb">Pound</option>
-        <option value="oz">Ounce</option>
-    </select>
-
-    <p class="result" id="wResult">Result:</p>
-</section>
-
-<!-- TEMPERATURE -->
-<section class="converter" id="temperature">
-    <h2>Temperature Converter</h2>
-
-    <label for="tInput">Amount</label>
-    <input type="number" id="tInput" placeholder="Enter value">
-
-    <label for="tFrom">From (unit)</label>
-    <select id="tFrom">
-        <option value="c">Celsius</option>
-        <option value="f">Fahrenheit</option>
-        <option value="k">Kelvin</option>
-    </select>
-
-    <label for="tTo">To (unit)</label>
-    <select id="tTo">
-        <option value="c">Celsius</option>
-        <option value="f">Fahrenheit</option>
-        <option value="k">Kelvin</option>
-    </select>
-
-    <p class="result" id="tResult">Result:</p>
-</section>
-
-<!-- SPEED -->
-<section class="converter" id="speed">
-    <h2>Speed Converter</h2>
-
-    <label for="sInput">Amount</label>
-    <input type="number" id="sInput" placeholder="Enter value">
-
-    <label for="sFrom">From (unit)</label>
-    <select id="sFrom">
-        <option value="kph">Kilometers per hour</option>
-        <option value="mph">Miles per hour</option>
-        <option value="mps">Meters per second</option>
-    </select>
-
-    <label for="sTo">To (unit)</label>
-    <select id="sTo">
-        <option value="mph">Miles per hour</option>
-        <option value="kph">Kilometers per hour</option>
-        <option value="mps">Meters per second</option>
-    </select>
-
-    <p class="result" id="sResult">Result:</p>
-</section>
-
-<!-- FUEL -->
-<section class="converter" id="fuel">
-    <h2>Fuel Consumption Converter</h2>
-
-    <label for="fInput">Amount</label>
-    <input type="number" id="fInput" placeholder="Enter value">
-
-    <label for="fFrom">From (unit)</label>
-    <select id="fFrom">
-        <option value="l100">Liters per 100 km</option>
-        <option value="mpg">Miles per gallon</option>
-    </select>
-
-    <label for="fTo">To (unit)</label>
-    <select id="fTo">
-        <option value="mpg">Miles per gallon</option>
-        <option value="l100">Liters per 100 km</option>
-    </select>
-
-    <p class="result" id="fResult">Result:</p>
-</section>
+    <div class="cards">
+        <a href="length.html" class="card">📏 Length Converter</a>
+        <a href="weight.html" class="card">⚖️ Weight Converter</a>
+        <a href="temperature.html" class="card">🌡️ Temperature Converter</a>
+        <a href="speed.html" class="card">🚗 Speed Converter</a>
+        <a href="fuel.html" class="card">⛽ Fuel Converter</a>
+    </div>
 
 </main>
-<section class="intro-text">
-  <p>
-    Smart Converter is a free online unit conversion tool designed to help you
-    quickly and accurately convert between different measurement units.
-    This website provides simple and easy-to-use converters for everyday tasks.
-  </p>
-</section>
+
 <footer>
     © 2025 Smart Converter |
     <a href="about.html">About</a> |
