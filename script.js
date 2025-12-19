@@ -41,3 +41,9 @@ fInput.oninput = () => {
   let r = fFrom.value === "l100" ? 235.215 / v : 235.215 / v;
   fResult.textContent = "Result: " + r.toFixed(2);
 };
+document.querySelectorAll('#sideMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    menu.classList.remove('open');
+    overlay.style.display = 'none';
+  });
+});
