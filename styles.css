@@ -1,111 +1,115 @@
 body {
-margin:0;
-font-family:Arial,sans-serif;
-background:#111;
-color:#eee;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
 }
 
-header {
-display:flex;
-justify-content:center;
-align-items:center;
-background:#1c1c1c;
-padding:15px;
-position:sticky;
-top:0;
-z-index:1000;
+body.menu-open {
+  overflow: hidden;
 }
 
-.burger {
-position:absolute;
-left:20px;
-font-size:2rem;
-cursor:pointer;
-color:#0ff;
+/* ===== HEADER ===== */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1c1c1c;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
+#burger {
+  position: absolute;
+  left: 20px;
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: #0ff;
+  cursor: pointer;
+}
+
+/* ===== SIDE MENU ===== */
 #sideMenu {
-position:fixed;
-top:0;
-left:-240px;
-width:220px;
-height:100%;
-background:#1a1a1a;
-padding-top:60px;
-transition:left .3s;
-z-index:999;
+  position: fixed;
+  top: 0;
+  left: -240px;
+  width: 220px;
+  height: 100%;
+  background: #1a1a1a;
+  padding-top: 70px;
+  transition: left 0.3s ease;
+  z-index: 999;
 }
 
-#sideMenu.open { left:0; }
+#sideMenu.open {
+  left: 0;
+}
 
 #sideMenu a {
-display:block;
-padding:15px;
-color:#0ff;
-text-decoration:none;
+  display: block;
+  padding: 15px;
+  color: #0ff;
+  text-decoration: none;
+  border-bottom: 1px solid #222;
 }
 
+/* ===== OVERLAY ===== */
 #overlay {
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,.5);
-z-index:998;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
 }
 
+/* ===== MAIN ===== */
 main {
-max-width:900px;
-margin:20px auto;
-padding:15px;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 15px;
 }
 
 .converter {
-background:#1c1c1c;
-border-radius:10px;
-padding:20px;
-margin-bottom:20px;
+  background: #1c1c1c;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-label { display:block; margin-top:10px; }
+label {
+  display: block;
+  margin-top: 10px;
+}
 
 input, select {
-width:100%;
-padding:10px;
-margin-top:5px;
-background:#222;
-color:#0ff;
-font-size: 16px;
-border:none;
-border-radius:6px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background: #222;
+  color: #0ff;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
 }
 
 .result {
-margin-top:15px;
-font-size:1.2rem;
-color:#0ff;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #0ff;
 }
 
+/* ===== FOOTER ===== */
 footer {
-text-align:center;
-padding:15px;
-background:#1c1c1c;
-}
-/* === FIX MENU + OVERLAY BUG === */
-
-body.menu-open {
-    overflow: hidden;
+  text-align: center;
+  padding: 15px;
+  background: #1c1c1c;
+  color: #ccc;
 }
 
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 998;
-}
-
-#sideMenu {
-    z-index: 999;
+footer a {
+  color: #0ff;
+  text-decoration: none;
 }
