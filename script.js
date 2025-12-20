@@ -1,17 +1,17 @@
 const burger = document.getElementById("burger");
 const menu = document.getElementById("sideMenu");
-const overlay = document.getElementById("overlay");
+
 
 function toggleMenu(forceClose = false) {
   const body = document.body;
 
   if (forceClose || menu.classList.contains("open")) {
     menu.classList.remove("open");
-    overlay.style.display = "none";
+    
     body.classList.remove("menu-open");
   } else {
     menu.classList.add("open");
-    overlay.style.display = "block";
+    
     body.classList.add("menu-open");
   }
 }
