@@ -99,3 +99,4 @@ fInput.oninput = () => {
 
   fResult.textContent = "Result: " + r.toFixed(2);
 };
+window.toggleMenu = toggleMenu;
