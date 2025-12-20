@@ -1,6 +1,4 @@
-// =======================
-// BURGER MENU
-// =======================
+// ===== BURGER MENU =====
 const burger = document.getElementById("burger");
 const menu = document.getElementById("sideMenu");
 const overlay = document.getElementById("overlay");
@@ -19,84 +17,85 @@ function toggleMenu(forceClose = false) {
 
 burger.onclick = () => toggleMenu();
 overlay.onclick = () => toggleMenu(true);
-document.querySelectorAll('#sideMenu a').forEach(link => {
-  link.addEventListener('click', () => toggleMenu(true));
+
+document.querySelectorAll("#sideMenu a").forEach(link => {
+  link.onclick = () => toggleMenu(true);
 });
 
-// =======================
-// GENERAL CONVERTER FUNCTION
-// =======================
+// ===== LINEAR CONVERTER =====
 function convertLinear(input, from, to, result) {
   const v = parseFloat(input.value);
-  if (isNaN(v)) return;
-  result.textContent = "Result: " + (v * parseFloat(from.value) / parseFloat(to.value)).toFixed(6);
+  if (isNaN(v)) {
+    result.textContent = "";
+    return;
+  }
+  result.textContent = "Result: " + (v * from.value / to.value).toFixed(6);
 }
 
-// =======================
-// LENGTH
-// =======================
+// Length
 lenInput.oninput = () => convertLinear(lenInput, lenFrom, lenTo, lenResult);
 lenFrom.onchange = lenTo.onchange = lenInput.oninput;
 
-// =======================
-// WEIGHT
-// =======================
+// Weight
 wInput.oninput = () => convertLinear(wInput, wFrom, wTo, wResult);
 wFrom.onchange = wTo.onchange = wInput.oninput;
 
-// =======================
-// SPEED
-// =======================
+// Speed
 sInput.oninput = () => convertLinear(sInput, sFrom, sTo, sResult);
 sFrom.onchange = sTo.onchange = sInput.oninput;
 
-// =======================
-// VOLUME
-// =======================
+// Volume
 vInput.oninput = () => convertLinear(vInput, vFrom, vTo, vResult);
 vFrom.onchange = vTo.onchange = vInput.oninput;
 
-// =======================
-// AREA
-// =======================
+// Area
 aInput.oninput = () => convertLinear(aInput, aFrom, aTo, aResult);
 aFrom.onchange = aTo.onchange = aInput.oninput;
 
-// =======================
-// TIME
-// =======================
+// Time
 timeInput.oninput = () => convertLinear(timeInput, timeFrom, timeTo, timeResult);
 timeFrom.onchange = timeTo.onchange = timeInput.oninput;
 
-// =======================
-// ENERGY
-// =======================
+// Energy
 eInput.oninput = () => convertLinear(eInput, eFrom, eTo, eResult);
 eFrom.onchange = eTo.onchange = eInput.oninput;
 
-// =======================
-// PRESSURE
-// =======================
+// Pressure
 pInput.oninput = () => convertLinear(pInput, pFrom, pTo, pResult);
 pFrom.onchange = pTo.onchange = pInput.oninput;
 
-// =======================
-// TEMPERATURE
-// =======================
+// ===== TEMPERATURE =====
 tInput.oninput = () => {
-  let v = parseFloat(tInput.value);
-  if (isNaN(v)) return;
-  let c = tFrom.value === "c" ? v : tFrom.value === "f" ? (v-32)*5/9 : v-273.15;
-  let r = tTo.value === "c" ? c : tTo.value === "f" ? c*9/5+32 : c+273.15;
+  const v = parseFloat(tInput.value);
+  if (isNaN(v)) {
+    tResult.textContent = "";
+    return;
+  }
+  let c =
+    tFrom.value === "c" ? v :
+    tFrom.value === "f" ? (v - 32) * 5 / 9 :
+    v - 273.15;
+
+  let r =
+    tTo.value === "c" ? c :
+    tTo.value === "f" ? c * 9 / 5 + 32 :
+    c + 273.15;
+
   tResult.textContent = "Result: " + r.toFixed(2);
 };
 
-// =======================
-// FUEL
-// =======================
+// ===== FUEL =====
 fInput.oninput = () => {
-  let v = parseFloat(fInput.value);
-  if (isNaN(v)) return;
-  let r = fFrom.value === "l100" ? 235.215 / v : 235.215 / v; // простий перевід
+  const v = parseFloat(fInput.value);
+  if (isNaN(v)) {
+    fResult.textContent = "";
+    return;
+  }
+
+  let r =
+    fFrom.value === "l100" && fTo.value === "mpg" ? 235.215 / v :
+    fFrom.value === "mpg" && fTo.value === "l100" ? 235.215 / v :
+    v;
+
   fResult.textContent = "Result: " + r.toFixed(2);
 };
