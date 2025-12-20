@@ -49,8 +49,5 @@ fInput.oninput = () => {
   fResult.textContent = "Result: " + r.toFixed(2);
 };
 document.querySelectorAll('#sideMenu a').forEach(link => {
-  link.addEventListener('click', () => {
-    menu.classList.remove('open');
-    overlay.style.display = 'none';
-  });
+  link.addEventListener('click', () => toggleMenu(true));
 });
