@@ -113,3 +113,17 @@ footer a {
   color: #0ff;
   text-decoration: none;
 }
+/* === MENU STABILITY FIX === */
+#sideMenu {
+  top: 0;
+  bottom: 0;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+body.menu-open main {
+  pointer-events: none;
+}
