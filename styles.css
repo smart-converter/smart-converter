@@ -91,3 +91,21 @@ text-align:center;
 padding:15px;
 background:#1c1c1c;
 }
+/* === FIX MENU + OVERLAY BUG === */
+
+body.menu-open {
+    overflow: hidden;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 998;
+}
+
+#sideMenu {
+    z-index: 999;
+}
