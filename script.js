@@ -2,15 +2,22 @@ const burger = document.getElementById("burger");
 const menu = document.getElementById("sideMenu");
 const overlay = document.getElementById("overlay");
 
-burger.onclick = () => {
-  menu.classList.toggle("open");
-  overlay.style.display = menu.classList.contains("open") ? "block" : "none";
-};
+function toggleMenu(forceClose = false) {
+  const body = document.body;
 
-overlay.onclick = () => {
-  menu.classList.remove("open");
-  overlay.style.display = "none";
-};
+  if (forceClose || menu.classList.contains("open")) {
+    menu.classList.remove("open");
+    overlay.style.display = "none";
+    body.classList.remove("menu-open");
+  } else {
+    menu.classList.add("open");
+    overlay.style.display = "block";
+    body.classList.add("menu-open");
+  }
+}
+
+burger.onclick = () => toggleMenu();
+overlay.onclick = () => toggleMenu(true);
 
 function convertLinear(input, from, to, result) {
   const v = parseFloat(input.value);
