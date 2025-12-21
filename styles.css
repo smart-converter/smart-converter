@@ -187,3 +187,13 @@ body.menu-open main {
   background: #0ff;
   color: #000;
 }
+/* === FIX FOOTER MENU CLICK === */
+footer {
+  position: relative;
+  z-index: 3000;
+}
+
+.footer-menu {
+  position: relative;
+  z-index: 3001;
+}
