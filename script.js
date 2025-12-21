@@ -1,33 +1,3 @@
-// ===== BURGER MENU =====
-const burger = document.getElementById("burger");
-const menu = document.getElementById("sideMenu");
-const overlay = document.getElementById("overlay");
-
-window.toggleMenu = function (forceClose = false) {
-  const body = document.body;
-
-  if (forceClose || menu.classList.contains("open")) {
-    menu.classList.remove("open");
-    body.classList.remove("menu-open");
-    overlay.style.display = "none";
-  } else {
-    menu.classList.add("open");
-    body.classList.add("menu-open");
-    overlay.style.display = "block";
-  }
-};
-
-if (burger) {
-  burger.onclick = () => window.toggleMenu();
-}
-
-if (overlay) {
-  overlay.onclick = () => window.toggleMenu(true);
-}
-
-document.querySelectorAll("#sideMenu a").forEach(link => {
-  link.onclick = () => window.toggleMenu(true);
-});
 
 // ===== LINEAR CONVERTER =====
 function convertLinear(input, from, to, result) {
@@ -106,4 +76,4 @@ fInput.oninput = () => {
 
   fResult.textContent = "Result: " + r.toFixed(2);
 };
-window.toggleMenu = toggleMenu;
+
