@@ -3,7 +3,19 @@ const burger = document.getElementById("burger");
 const menu = document.getElementById("sideMenu");
 const overlay = document.getElementById("overlay");
 
-function toggleMenu(forceClose = false) {
+window.toggleMenu = function (forceClose = false) {
+  const body = document.body;
+
+  if (forceClose || menu.classList.contains("open")) {
+    menu.classList.remove("open");
+    body.classList.remove("menu-open");
+    overlay.style.display = "none";
+  } else {
+    menu.classList.add("open");
+    body.classList.add("menu-open");
+    overlay.style.display = "block";
+  }
+};
   const body = document.body;
 
   if (forceClose || menu.classList.contains("open")) {
