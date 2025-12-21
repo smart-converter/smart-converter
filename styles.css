@@ -28,11 +28,11 @@ body.menu-open {
 #burger {
   position: absolute;
   left: 20px;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #0ff;
+  font-size: 32px;
   background: none;
   border: none;
+  color: #0ff;
+  cursor: pointer;
 }
 
 /* ===== SIDE MENU ===== */
