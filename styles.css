@@ -172,3 +172,18 @@ body.menu-open main {
   transform: translateY(-50%);
   z-index: 3000;
 }
+.footer-menu {
+  background: none;
+  border: 2px solid #0ff;
+  color: #0ff;
+  font-size: 18px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.footer-menu:hover {
+  background: #0ff;
+  color: #000;
+}
