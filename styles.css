@@ -10,15 +10,19 @@ body.menu-open {
 }
 
 /* ===== HEADER ===== */
-.top-bar {
+.top-bar 
+header {
   display: flex;
   align-items: center;
-  justify-content: center;
   background: #1c1c1c;
   padding: 15px;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 2000;
+}
+
+header h1 {
+  margin: 0 auto;
 }
 
 #burger {
