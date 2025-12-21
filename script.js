@@ -4,14 +4,16 @@ const menu = document.getElementById("sideMenu");
 const overlay = document.getElementById("overlay");
 
 function toggleMenu(forceClose = false) {
+  const body = document.body;
+
   if (forceClose || menu.classList.contains("open")) {
     menu.classList.remove("open");
     overlay.style.display = "none";
-    document.body.classList.remove("menu-open");
+    body.classList.remove("menu-open");
   } else {
     menu.classList.add("open");
     overlay.style.display = "block";
-    document.body.classList.add("menu-open");
+    body.classList.add("menu-open");
   }
 }
 
