@@ -16,24 +16,17 @@ window.toggleMenu = function (forceClose = false) {
     overlay.style.display = "block";
   }
 };
-  const body = document.body;
 
-  if (forceClose || menu.classList.contains("open")) {
-    menu.classList.remove("open");
-    overlay.style.display = "none";
-    body.classList.remove("menu-open");
-  } else {
-    menu.classList.add("open");
-    overlay.style.display = "block";
-    body.classList.add("menu-open");
-  }
+if (burger) {
+  burger.onclick = () => window.toggleMenu();
 }
 
-burger.onclick = () => toggleMenu();
-overlay.onclick = () => toggleMenu(true);
+if (overlay) {
+  overlay.onclick = () => window.toggleMenu(true);
+}
 
 document.querySelectorAll("#sideMenu a").forEach(link => {
-  link.onclick = () => toggleMenu(true);
+  link.onclick = () => window.toggleMenu(true);
 });
 
 // ===== LINEAR CONVERTER =====
