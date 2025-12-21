@@ -24,7 +24,7 @@ body.menu-open {
 #burger {
   position: absolute;
   left: 20px;
-  font-size: 36px;
+  font-size: 2rem;
   cursor: pointer;
   color: #0ff;
   background: none;
