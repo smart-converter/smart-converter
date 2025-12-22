@@ -13,7 +13,6 @@ body.menu-open {
 .top-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
   background: #1c1c1c;
   padding: 15px;
   position: sticky;
@@ -21,18 +20,18 @@ body.menu-open {
   z-index: 2000;
 }
 
-.top-bar h1 {
-  margin: 0 auto;
-}
-
 #burger {
-  position: absolute;
-  left: 20px;
-  font-size: 32px;
+  font-size: 28px;
   background: none;
   border: none;
   color: #0ff;
   cursor: pointer;
+}
+
+.top-bar h1 {
+  margin: 0 auto;
+  font-size: 18px;
+  color: #fff;
 }
 
 /* ===== SIDE MENU ===== */
