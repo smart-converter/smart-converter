@@ -111,10 +111,7 @@ body.menu-open main {
 }
 
 /* === BIGGER BURGER BUTTON === */
-#burger {
-  font-size: 36px;
-  padding: 5px 10px;
-}
+
 
 /* === FOOTER MENU BUTTON === */
 .footer-menu {
@@ -139,8 +136,7 @@ main {
 body.menu-open main {
   pointer-events: none;
 }
-/* === BURGER BUTTON FIX === */
-#burger {
+/* === BURGER BUTTON #burger {
   background: none;
   border: none;
   color: #0ff;
