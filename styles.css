@@ -152,3 +152,54 @@ footer {
   position: relative;
   z-index: 3001;
 }
+/* ===== BURGER ===== */
+#burger {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #0ff;
+  cursor: pointer;
+  z-index: 3001;
+}
+
+/* ===== SIDE MENU ===== */
+#sideMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: #1a1a1a;
+  padding-top: 80px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 3000;
+}
+
+#sideMenu.open {
+  transform: translateX(0);
+}
+
+#sideMenu a {
+  display: block;
+  padding: 15px 20px;
+  color: #0ff;
+  text-decoration: none;
+}
+
+/* ===== OVERLAY ===== */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  z-index: 2000;
+}
+
+body.menu-open #overlay {
+  display: block;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
