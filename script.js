@@ -1,4 +1,37 @@
+// ===== BURGER MENU (STABLE VERSION) =====
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
+  const body = document.body;
 
+  if (!burger || !menu || !overlay) {
+    console.error("Menu elements missing");
+    return;
+  }
+
+  function toggleMenu(forceClose = false) {
+    if (forceClose || menu.classList.contains("open")) {
+      menu.classList.remove("open");
+      overlay.style.display = "none";
+      body.classList.remove("menu-open");
+    } else {
+      menu.classList.add("open");
+      overlay.style.display = "block";
+      body.classList.add("menu-open");
+    }
+  }
+
+  burger.addEventListener("click", () => toggleMenu());
+  overlay.addEventListener("click", () => toggleMenu(true));
+
+  document.querySelectorAll("#sideMenu a").forEach(link => {
+    link.addEventListener("click", () => toggleMenu(true));
+  });
+
+  // доступ до меню з футера
+  window.toggleMenu = toggleMenu;
+});
 // ===== LINEAR CONVERTER =====
 function convertLinear(input, from, to, result) {
   const v = parseFloat(input.value);
