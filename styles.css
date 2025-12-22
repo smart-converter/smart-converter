@@ -98,17 +98,7 @@ footer {
   background: #1c1c1c;
   color: #ccc;
 }
-/* === MENU STABILITY FIX === */
 
-
-main {
-  position: relative;
-  z-index: 1;
-}
-
-body.menu-open main {
-  pointer-events: none;
-}
 
 /* === BIGGER BURGER BUTTON === */
 
