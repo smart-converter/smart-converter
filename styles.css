@@ -35,20 +35,7 @@ body.menu-open {
 }
 
 /* ===== SIDE MENU ===== */
-#sideMenu {
-  position: fixed;
-  top: 0;
-  left: -240px;
-  width: 220px;
-  height: 100vh;
-  background: #1a1a1a;
-  padding-top: 80px;
-  transition: left 0.3s ease;
-  z-index: 2000;
-}
 
-#sideMenu.open {
-  left: 0;
 }
 
 #sideMenu a {
