@@ -99,10 +99,7 @@ footer {
   color: #ccc;
 }
 /* === MENU STABILITY FIX === */
-#sideMenu {
-  top: 0;
-  bottom: 0;
-}
+
 
 main {
   position: relative;
@@ -132,10 +129,7 @@ footer a {
   text-decoration: none;
 }
 /* === MENU STABILITY FIX === */
-#sideMenu {
-  top: 0;
-  bottom: 0;
-}
+
 
 main {
   position: relative;
