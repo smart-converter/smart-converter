@@ -136,18 +136,7 @@ main {
 body.menu-open main {
   pointer-events: none;
 }
-/* === BURGER BUTTON #burger {
-  background: none;
-  border: none;
-  color: #0ff;
-  font-size: 2rem;
-  cursor: pointer;
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 3000;
-}
+/* === BURGER BUTTON 
 .footer-menu {
   background: none;
   border: 2px solid #0ff;
