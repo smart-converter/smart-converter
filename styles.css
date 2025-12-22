@@ -5,10 +5,6 @@ body {
   color: #eee;
 }
 
-body.menu-open {
-  overflow: hidden;
-}
-
 /* ===== HEADER ===== */
 .top-bar {
   display: flex;
@@ -17,149 +13,15 @@ body.menu-open {
   padding: 15px;
   position: sticky;
   top: 0;
-  z-index: 2000;
-}
-
-#burger {
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: #0ff;
-  cursor: pointer;
-}
-
-.top-bar h1 {
-  margin: 0 auto;
-  font-size: 18px;
-  color: #fff;
-}
-
-/* ===== SIDE MENU ===== */
-
-}
-
-#sideMenu a {
-  display: block;
-  padding: 15px;
-  color: #0ff;
-  text-decoration: none;
-  border-bottom: 1px solid #222;
-}
-
-/* ===== OVERLAY ===== */
-#overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 998;
-}
-
-/* ===== MAIN ===== */
-main {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 15px;
-}
-
-.converter {
-  background: #1c1c1c;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  margin-top: 10px;
-}
-
-input, select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  background: #222;
-  color: #0ff;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-}
-
-.result {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  color: #0ff;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  padding: 15px;
-  background: #1c1c1c;
-  color: #ccc;
-}
-
-
-/* === BIGGER BURGER BUTTON === */
-
-
-/* === FOOTER MENU BUTTON === */
-.footer-menu {
-  background: none;
-  border: none;
-  color: #0ff;
-  font-size: 18px;
-  cursor: pointer;
-}
-footer a {
-  color: #0ff;
-  text-decoration: none;
-}
-/* === MENU STABILITY FIX === */
-
-
-main {
-  position: relative;
-  z-index: 1;
-}
-
-body.menu-open main {
-  pointer-events: none;
-}
-/* === BURGER BUTTON 
-.footer-menu {
-  background: none;
-  border: 2px solid #0ff;
-  color: #0ff;
-  font-size: 18px;
-  padding: 6px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-.footer-menu:hover {
-  background: #0ff;
-  color: #000;
-}
-/* === FIX FOOTER MENU CLICK === */
-footer {
-  position: relative;
   z-index: 3000;
 }
 
-.footer-menu {
-  position: relative;
-  z-index: 3001;
-}
-/* ===== BURGER ===== */
 #burger {
   font-size: 28px;
   background: none;
   border: none;
   color: #0ff;
   cursor: pointer;
-  z-index: 3001;
 }
 
 /* ===== SIDE MENU ===== */
@@ -173,7 +35,7 @@ footer {
   padding-top: 80px;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
-  z-index: 3000;
+  z-index: 2500;
 }
 
 #sideMenu.open {
@@ -202,4 +64,39 @@ body.menu-open #overlay {
 
 body.menu-open {
   overflow: hidden;
+}
+
+/* ===== MAIN ===== */
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 15px;
+}
+
+.converter {
+  background: #1c1c1c;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #1c1c1c;
+  color: #ccc;
+}
+
+footer a {
+  color: #0ff;
+  text-decoration: none;
+}
+
+.footer-menu {
+  background: none;
+  border: none;
+  color: #0ff;
+  font-size: 18px;
+  cursor: pointer;
 }
