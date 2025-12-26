@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About Smart Converter</title>
-    <meta name="description" content="Smart Converter is a free online unit converter for length, weight, temperature, speed and more. Fast, accurate and easy to use.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>About Smart Converter</title>
+  <meta name="description" content="Smart Converter is a free online unit converter for length, weight, temperature, speed and more.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<header>
-     <div class="burger" onclick="toggleMenu()">☰</div>
-    <h1>About Smart Converter</h1>
+<!-- ===== HEADER ===== -->
+<header class="top-bar">
+  <button id="burger" aria-label="Menu">☰</button>
+  <h1>About Smart Converter</h1>
 </header>
 
+<!-- ===== SIDE MENU ===== -->
+<nav id="sideMenu">
+  <a href="/smart-converter/#length">📏 Length</a>
+  <a href="/smart-converter/#weight">⚖️ Weight</a>
+  <a href="/smart-converter/#temperature">🌡️ Temperature</a>
+  <a href="/smart-converter/#speed">🚗 Speed</a>
+  <a href="/smart-converter/#volume">🧪 Volume</a>
+  <a href="/smart-converter/#area">📐 Area</a>
+  <a href="/smart-converter/#time">⏱️ Time</a>
+  <a href="/smart-converter/#energy">⚡ Energy</a>
+  <a href="/smart-converter/#pressure">🌬️ Pressure</a>
+  <a href="/smart-converter/#fuel">⛽ Fuel</a>
+</nav>
+
+<!-- ===== OVERLAY ===== -->
+<div id="overlay"></div>
+
+<!-- ===== MAIN ===== -->
 <main>
-    <div class="converter">
-        <p>
-            <strong>Smart Converter</strong> is a free online tool designed to help users quickly and accurately convert units of measurement.
-            Our service supports popular conversions such as length, weight, temperature, speed, fuel consumption and more.
-        </p>
+  <div class="converter">
+    <p>
+      <strong>Smart Converter</strong> is a free online tool designed to help users quickly and accurately convert units of measurement.
+      It supports length, weight, temperature, speed, fuel consumption and more.
+    </p>
 
-        <p>
-            The website is built to be simple, fast and accessible on all devices. No registration is required and all calculations
-            are performed instantly in your browser.
-        </p>
+    <p>
+      The website is fast, simple and works on all devices. No registration required — all calculations run instantly in your browser.
+    </p>
 
-        <p>
-            Our goal is to provide a reliable and user-friendly converter that anyone can use anytime, anywhere.
-        </p>
-    </div>
+    <p>
+      Our goal is to provide a reliable, user-friendly converter anyone can use anytime, anywhere.
+    </p>
+  </div>
 </main>
 
+<!-- ===== FOOTER ===== -->
 <footer>
-© 2025 Smart Converter |
-<a href="/smart-converter/about.html">About</a> |
-<a href="/smart-converter/contacts.html">Contact</a> |
-<a href="/smart-converter/privacy.html">Privacy</a> |
-<a href="/smart-converter/terms.html">Terms</a>
-<button class="footer-menu" onclick="toggleMenu()">☰ Menu</button>
+  © 2025 Smart Converter |
+  <a href="/smart-converter/about.html">About</a> |
+  <a href="/smart-converter/contacts.html">Contact</a> |
+  <a href="/smart-converter/privacy.html">Privacy</a> |
+  <a href="/smart-converter/terms.html">Terms</a> |
+  <button class="footer-menu" onclick="toggleMenu()">☰ Menu</button>
 </footer>
 
 <script src="script.js"></script>
