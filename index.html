@@ -6,10 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
 <header class="top-bar">
-  <button id="burger" aria-label="Menu">☰</button>
+  <button id="burger">☰</button>
   <h1>Smart Converter</h1>
 </header>
 
@@ -31,83 +32,61 @@
 <main>
 
 <section id="length" class="converter">
-<h2>Length</h2>
-<input id="lenInput" type="number">
-<select id="lenFrom"><option value="1">m</option><option value="1000">km</option></select>
-<select id="lenTo"><option value="1">m</option><option value="1000">km</option></select>
-<p id="lenResult"></p>
+<h2>Length (meters ⇄ kilometers)</h2>
+<input id="lenInput" type="number" placeholder="Value">
+<select id="lenFrom">
+  <option value="1">Meter</option>
+  <option value="1000">Kilometer</option>
+</select>
+<select id="lenTo">
+  <option value="1">Meter</option>
+  <option value="1000">Kilometer</option>
+</select>
+<div id="lenResult"></div>
 </section>
 
 <section id="weight" class="converter">
-<h2>Weight</h2>
+<h2>Weight (kg ⇄ g)</h2>
 <input id="wInput" type="number">
-<select id="wFrom"><option value="1">kg</option><option value="0.001">g</option></select>
-<select id="wTo"><option value="1">kg</option><option value="0.001">g</option></select>
-<p id="wResult"></p>
+<select id="wFrom">
+  <option value="1">Kg</option>
+  <option value="0.001">Gram</option>
+</select>
+<select id="wTo">
+  <option value="1">Kg</option>
+  <option value="0.001">Gram</option>
+</select>
+<div id="wResult"></div>
 </section>
 
 <section id="temperature" class="converter">
 <h2>Temperature</h2>
 <input id="tInput" type="number">
-<select id="tFrom"><option value="c">C</option><option value="f">F</option></select>
-<select id="tTo"><option value="c">C</option><option value="f">F</option></select>
-<p id="tResult"></p>
-</section>
-
-<section id="speed" class="converter">
-<h2>Speed</h2>
-<input id="sInput" type="number">
-<select id="sFrom"><option value="1">m/s</option><option value="3.6">km/h</option></select>
-<select id="sTo"><option value="1">m/s</option><option value="3.6">km/h</option></select>
-<p id="sResult"></p>
-</section>
-
-<section id="volume" class="converter">
-<h2>Volume</h2>
-<input id="vInput" type="number">
-<select id="vFrom"><option value="1">L</option><option value="0.001">ml</option></select>
-<select id="vTo"><option value="1">L</option><option value="0.001">ml</option></select>
-<p id="vResult"></p>
-</section>
-
-<section id="area" class="converter">
-<h2>Area</h2>
-<input id="aInput" type="number">
-<select id="aFrom"><option value="1">m²</option><option value="10000">ha</option></select>
-<select id="aTo"><option value="1">m²</option><option value="10000">ha</option></select>
-<p id="aResult"></p>
-</section>
-
-<section id="time" class="converter">
-<h2>Time</h2>
-<input id="timeInput" type="number">
-<select id="timeFrom"><option value="1">s</option><option value="60">min</option></select>
-<select id="timeTo"><option value="1">s</option><option value="60">min</option></select>
-<p id="timeResult"></p>
+<select id="tFrom">
+  <option value="c">C</option>
+  <option value="f">F</option>
+  <option value="k">K</option>
+</select>
+<select id="tTo">
+  <option value="c">C</option>
+  <option value="f">F</option>
+  <option value="k">K</option>
+</select>
+<div id="tResult"></div>
 </section>
 
 <section id="energy" class="converter">
-<h2>Energy</h2>
+<h2>Energy (J ⇄ kJ)</h2>
 <input id="eInput" type="number">
-<select id="eFrom"><option value="1">J</option><option value="1000">kJ</option></select>
-<select id="eTo"><option value="1">J</option><option value="1000">kJ</option></select>
-<p id="eResult"></p>
-</section>
-
-<section id="pressure" class="converter">
-<h2>Pressure</h2>
-<input id="pInput" type="number">
-<select id="pFrom"><option value="1">Pa</option><option value="1000">kPa</option></select>
-<select id="pTo"><option value="1">Pa</option><option value="1000">kPa</option></select>
-<p id="pResult"></p>
-</section>
-
-<section id="fuel" class="converter">
-<h2>Fuel</h2>
-<input id="fInput" type="number">
-<select id="fFrom"><option value="l100">L/100km</option><option value="mpg">MPG</option></select>
-<select id="fTo"><option value="mpg">MPG</option><option value="l100">L/100km</option></select>
-<p id="fResult"></p>
+<select id="eFrom">
+  <option value="1">J</option>
+  <option value="1000">kJ</option>
+</select>
+<select id="eTo">
+  <option value="1">J</option>
+  <option value="1000">kJ</option>
+</select>
+<div id="eResult"></div>
 </section>
 
 </main>
