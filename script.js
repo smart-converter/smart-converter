@@ -4,21 +4,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("sideMenu");
   const overlay = document.getElementById("overlay");
 
+  if (!burger || !footerMenu || !menu || !overlay) {
+    console.error("Menu elements missing");
+    return;
+  }
+
   function openMenu() {
     menu.classList.add("open");
     overlay.classList.add("show");
+    document.body.classList.add("menu-open");
   }
 
   function closeMenu() {
     menu.classList.remove("open");
     overlay.classList.remove("show");
+    document.body.classList.remove("menu-open");
   }
 
-  burger.onclick = openMenu;
-  footerMenu.onclick = openMenu;
-  overlay.onclick = closeMenu;
+  burger.addEventListener("click", openMenu);
+  footerMenu.addEventListener("click", openMenu);
+  overlay.addEventListener("click", closeMenu);
 
   document.querySelectorAll("#sideMenu a").forEach(link => {
-    link.onclick = closeMenu;
+    link.addEventListener("click", closeMenu);
   });
 });
