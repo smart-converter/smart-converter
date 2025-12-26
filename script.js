@@ -3,29 +3,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerMenu = document.getElementById("footerMenu");
   const menu = document.getElementById("sideMenu");
   const overlay = document.getElementById("overlay");
-
-  if (!burger || !footerMenu || !menu || !overlay) {
-    console.error("Menu elements missing");
-    return;
-  }
+  const body = document.body;
 
   function openMenu() {
     menu.classList.add("open");
     overlay.classList.add("show");
-    document.body.classList.add("menu-open");
+    body.classList.add("menu-open");
   }
 
   function closeMenu() {
     menu.classList.remove("open");
     overlay.classList.remove("show");
-    document.body.classList.remove("menu-open");
+    body.classList.remove("menu-open");
   }
 
-  burger.addEventListener("click", openMenu);
-  footerMenu.addEventListener("click", openMenu);
-  overlay.addEventListener("click", closeMenu);
+  burger.onclick = openMenu;
+  footerMenu.onclick = openMenu;
+  overlay.onclick = closeMenu;
 
   document.querySelectorAll("#sideMenu a").forEach(link => {
-    link.addEventListener("click", closeMenu);
+    link.onclick = closeMenu;
   });
 });
+
+// ===== CONVERTERS =====
+function convertLinear(input, from, to, result) {
+  const v = parseFloat(input.value);
+  if (isNaN(v)) {
+    result.textContent = "";
+    return;
+  }
+  result.textContent = "Result: " + (v * from.value / to.value).toFixed(6);
+}
