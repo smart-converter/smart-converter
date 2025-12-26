@@ -1,42 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Terms of Service – Smart Converter</title>
-    <meta name="description" content="Terms of Service for using the Smart Converter website.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Terms of Use – Smart Converter</title>
+  <meta name="description" content="Terms of Use for Smart Converter. Rules and conditions for using the website.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<header>
-    <div class="burger" onclick="toggleMenu()">☰</div>
-    <h1>Terms of Service</h1>
+<!-- ===== HEADER ===== -->
+<header class="top-bar">
+  <button id="burger" aria-label="Menu">☰</button>
+  <h1>Terms of Use</h1>
 </header>
 
+<!-- ===== SIDE MENU ===== -->
+<nav id="sideMenu">
+  <a href="/smart-converter/#length">📏 Length</a>
+  <a href="/smart-converter/#weight">⚖️ Weight</a>
+  <a href="/smart-converter/#temperature">🌡️ Temperature</a>
+  <a href="/smart-converter/#speed">🚗 Speed</a>
+  <a href="/smart-converter/#volume">🧪 Volume</a>
+  <a href="/smart-converter/#area">📐 Area</a>
+  <a href="/smart-converter/#time">⏱️ Time</a>
+  <a href="/smart-converter/#energy">⚡ Energy</a>
+  <a href="/smart-converter/#pressure">🌬️ Pressure</a>
+  <a href="/smart-converter/#fuel">⛽ Fuel</a>
+</nav>
+
+<!-- ===== OVERLAY ===== -->
+<div id="overlay"></div>
+
+<!-- ===== MAIN ===== -->
 <main>
-    <div class="converter">
-        <p>
-            Smart Converter is provided "as is" without warranties of any kind.
-        </p>
+  <div class="converter">
+    <p>
+      By using <strong>Smart Converter</strong>, you agree to these Terms of Use.
+      If you do not agree, please do not use this website.
+    </p>
 
-        <p>
-            We do not guarantee the accuracy of all conversion results and are not responsible for any losses or damages.
-        </p>
+    <p>
+      This website is provided "as is" without warranties of any kind.
+      We do not guarantee accuracy, completeness, or reliability of the results.
+    </p>
 
-        <p>
-            By using this website, you agree to these Terms of Service.
-        </p>
-    </div>
+    <p>
+      Smart Converter is intended for informational and educational purposes only.
+      Any reliance on the provided data is at your own risk.
+    </p>
+
+    <p>
+      We reserve the right to modify or discontinue the service at any time
+      without prior notice.
+    </p>
+  </div>
 </main>
 
+<!-- ===== FOOTER ===== -->
 <footer>
-© 2025 Smart Converter |
-<a href="/smart-converter/about.html">About</a> |
-<a href="/smart-converter/contacts.html">Contact</a> |
-<a href="/smart-converter/privacy.html">Privacy</a> |
-<a href="/smart-converter/terms.html">Terms</a>
-<button class="footer-menu" onclick="toggleMenu()">☰ Menu</button>
+  © 2025 Smart Converter |
+  <a href="/smart-converter/about.html">About</a> |
+  <a href="/smart-converter/contacts.html">Contact</a> |
+  <a href="/smart-converter/privacy.html">Privacy</a> |
+  <a href="/smart-converter/terms.html">Terms</a> |
+  <button class="footer-menu" onclick="toggleMenu()">☰ Menu</button>
 </footer>
 
 <script src="script.js"></script>
