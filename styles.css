@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -9,7 +7,6 @@ body {
   color: #eee;
 }
 
-/* HEADER */
 .top-bar {
   position: sticky;
   top: 0;
@@ -33,7 +30,6 @@ body {
   font-size: 18px;
 }
 
-/* SIDE MENU */
 #sideMenu {
   position: fixed;
   top: 0;
@@ -59,7 +55,6 @@ body {
   border-bottom: 1px solid #222;
 }
 
-/* OVERLAY */
 #overlay {
   position: fixed;
   inset: 0;
@@ -72,7 +67,6 @@ body {
   display: block;
 }
 
-/* MAIN */
 main {
   max-width: 900px;
   margin: 20px auto;
@@ -86,7 +80,6 @@ main {
   margin-bottom: 20px;
 }
 
-/* FOOTER */
 footer {
   text-align: center;
   padding: 15px;
@@ -101,4 +94,5 @@ footer {
   padding: 6px 14px;
   border-radius: 8px;
   cursor: pointer;
+  margin-left: 10px;
 }
