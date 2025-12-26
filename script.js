@@ -1,50 +1,51 @@
-document.addEventListener("DOMContentLoaded",()=>{
-const burger=document.getElementById("burger");
-const footer=document.getElementById("footerMenu");
-const menu=document.getElementById("sideMenu");
-const overlay=document.getElementById("overlay");
+document.addEventListener("DOMContentLoaded", () => {
 
-function openMenu(){
-menu.classList.add("open");
-overlay.classList.add("show");
-}
-function closeMenu(){
-menu.classList.remove("open");
-overlay.classList.remove("show");
-}
+  const burger = document.getElementById("burger");
+  const footerMenu = document.getElementById("footerMenu");
+  const menu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
 
-burger.onclick=openMenu;
-footer.onclick=openMenu;
-overlay.onclick=closeMenu;
-document.querySelectorAll("#sideMenu a").forEach(a=>a.onclick=closeMenu);
+  function openMenu() {
+    menu.classList.add("open");
+    overlay.classList.add("show");
+  }
 
-function lin(i,f,t,r){
-const v=parseFloat(i.value);
-if(isNaN(v)){r.textContent="";return}
-r.textContent=(v*f.value/t.value).toFixed(3);
-}
+  function closeMenu() {
+    menu.classList.remove("open");
+    overlay.classList.remove("show");
+  }
 
-lenInput.oninput=()=>lin(lenInput,lenFrom,lenTo,lenResult);
-wInput.oninput=()=>lin(wInput,wFrom,wTo,wResult);
-sInput.oninput=()=>lin(sInput,sFrom,sTo,sResult);
-vInput.oninput=()=>lin(vInput,vFrom,vTo,vResult);
-aInput.oninput=()=>lin(aInput,aFrom,aTo,aResult);
-timeInput.oninput=()=>lin(timeInput,timeFrom,timeTo,timeResult);
-eInput.oninput=()=>lin(eInput,eFrom,eTo,eResult);
-pInput.oninput=()=>lin(pInput,pFrom,pTo,pResult);
+  burger.onclick = openMenu;
+  footerMenu.onclick = openMenu;
+  overlay.onclick = closeMenu;
 
-tInput.oninput=()=>{
-const v=parseFloat(tInput.value);
-if(isNaN(v)){tResult.textContent="";return}
-let c=tFrom.value==="c"?v:(v-32)*5/9;
-let r=tTo.value==="c"?c:c*9/5+32;
-tResult.textContent=r.toFixed(2);
-}
+  document.querySelectorAll("#sideMenu a").forEach(a => {
+    a.onclick = closeMenu;
+  });
 
-fInput.oninput=()=>{
-const v=parseFloat(fInput.value);
-if(isNaN(v)){fResult.textContent="";return}
-let r=fFrom.value==="l100"?235.215/v:235.215/v;
-fResult.textContent=r.toFixed(2);
-}
+  function linear(input, from, to, result) {
+    const v = parseFloat(input.value);
+    if (isNaN(v)) { result.textContent = ""; return; }
+    result.textContent = "Result: " + (v * from.value / to.value).toFixed(4);
+  }
+
+  lenInput.oninput = () => linear(lenInput, lenFrom, lenTo, lenResult);
+  wInput.oninput   = () => linear(wInput, wFrom, wTo, wResult);
+  eInput.oninput   = () => linear(eInput, eFrom, eTo, eResult);
+
+  tInput.oninput = () => {
+    let v = parseFloat(tInput.value);
+    if (isNaN(v)) { tResult.textContent = ""; return; }
+
+    let c = tFrom.value === "c" ? v :
+            tFrom.value === "f" ? (v - 32) * 5/9 :
+            v - 273.15;
+
+    let r = tTo.value === "c" ? c :
+            tTo.value === "f" ? c * 9/5 + 32 :
+            c + 273.15;
+
+    tResult.textContent = "Result: " + r.toFixed(2);
+  };
+
 });
