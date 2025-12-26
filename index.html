@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Smart Converter</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Smart Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
 <header class="top-bar">
-  <button id="burger">☰</button>
+  <button id="burger" aria-label="Menu">☰</button>
   <h1>Smart Converter</h1>
 </header>
 
@@ -30,70 +29,230 @@
 <div id="overlay"></div>
 
 <main>
+  <!-- Length -->
+  <section class="converter" id="length">
+    <h2>Length Converter</h2>
+    <label>Amount</label>
+    <input type="number" id="lenInput">
+    <label>From</label>
+    <select id="lenFrom">
+      <option value="1">Meter</option>
+      <option value="1000">Kilometer</option>
+      <option value="0.01">Centimeter</option>
+      <option value="0.001">Millimeter</option>
+      <option value="1609.344">Mile</option>
+      <option value="0.9144">Yard</option>
+      <option value="0.3048">Foot</option>
+      <option value="0.0254">Inch</option>
+    </select>
+    <label>To</label>
+    <select id="lenTo">
+      <option value="1">Meter</option>
+      <option value="1000">Kilometer</option>
+      <option value="0.01">Centimeter</option>
+      <option value="0.001">Millimeter</option>
+      <option value="1609.344">Mile</option>
+      <option value="0.9144">Yard</option>
+      <option value="0.3048">Foot</option>
+      <option value="0.0254">Inch</option>
+    </select>
+    <p class="result" id="lenResult"></p>
+  </section>
 
-<section id="length" class="converter">
-<h2>Length (meters ⇄ kilometers)</h2>
-<input id="lenInput" type="number" placeholder="Value">
-<select id="lenFrom">
-  <option value="1">Meter</option>
-  <option value="1000">Kilometer</option>
-</select>
-<select id="lenTo">
-  <option value="1">Meter</option>
-  <option value="1000">Kilometer</option>
-</select>
-<div id="lenResult"></div>
-</section>
+  <!-- Weight -->
+  <section class="converter" id="weight">
+    <h2>Weight Converter</h2>
+    <label>Amount</label>
+    <input type="number" id="wInput">
+    <label>From</label>
+    <select id="wFrom">
+      <option value="1">Kilogram</option>
+      <option value="0.001">Gram</option>
+      <option value="0.453592">Pound</option>
+      <option value="0.0283495">Ounce</option>
+      <option value="1000">Metric Ton</option>
+    </select>
+    <label>To</label>
+    <select id="wTo">
+      <option value="1">Kilogram</option>
+      <option value="0.001">Gram</option>
+      <option value="0.453592">Pound</option>
+      <option value="0.0283495">Ounce</option>
+      <option value="1000">Metric Ton</option>
+    </select>
+    <p class="result" id="wResult"></p>
+  </section>
 
-<section id="weight" class="converter">
-<h2>Weight (kg ⇄ g)</h2>
-<input id="wInput" type="number">
-<select id="wFrom">
-  <option value="1">Kg</option>
-  <option value="0.001">Gram</option>
-</select>
-<select id="wTo">
-  <option value="1">Kg</option>
-  <option value="0.001">Gram</option>
-</select>
-<div id="wResult"></div>
-</section>
+  <!-- Temperature -->
+  <section class="converter" id="temperature">
+    <h2>Temperature Converter</h2>
+    <label>Amount</label>
+    <input type="number" id="tInput">
+    <label>From</label>
+    <select id="tFrom">
+      <option value="c">Celsius</option>
+      <option value="f">Fahrenheit</option>
+      <option value="k">Kelvin</option>
+    </select>
+    <label>To</label>
+    <select id="tTo">
+      <option value="c">Celsius</option>
+      <option value="f">Fahrenheit</option>
+      <option value="k">Kelvin</option>
+    </select>
+    <p class="result" id="tResult"></p>
+  </section>
 
-<section id="temperature" class="converter">
-<h2>Temperature</h2>
-<input id="tInput" type="number">
-<select id="tFrom">
-  <option value="c">C</option>
-  <option value="f">F</option>
-  <option value="k">K</option>
-</select>
-<select id="tTo">
-  <option value="c">C</option>
-  <option value="f">F</option>
-  <option value="k">K</option>
-</select>
-<div id="tResult"></div>
-</section>
+  <!-- Speed -->
+  <section class="converter" id="speed">
+    <h2>Speed Converter</h2>
+    <label>Amount</label>
+    <input type="number" id="sInput">
+    <label>From</label>
+    <select id="sFrom">
+      <option value="1">m/s</option>
+      <option value="3.6">km/h</option>
+      <option value="2.237">mph</option>
+    </select>
+    <label>To</label>
+    <select id="sTo">
+      <option value="1">m/s</option>
+      <option value="3.6">km/h</option>
+      <option value="2.237">mph</option>
+    </select>
+    <p class="result" id="sResult"></p>
+  </section>
 
-<section id="energy" class="converter">
-<h2>Energy (J ⇄ kJ)</h2>
-<input id="eInput" type="number">
-<select id="eFrom">
-  <option value="1">J</option>
-  <option value="1000">kJ</option>
-</select>
-<select id="eTo">
-  <option value="1">J</option>
-  <option value="1000">kJ</option>
-</select>
-<div id="eResult"></div>
-</section>
+  <!-- Volume -->
+  <section class="converter" id="volume">
+    <h2>Volume Converter</h2>
+    <label>Amount</label>
+    <input type="number" id="vInput">
+    <label>From</label>
+    <select id="vFrom">
+      <option value="1">Liter</option>
+      <option value="0.001">Milliliter</option>
+      <option value="0.264172">Gallon</option>
+      <option value="0.0353147">Cubic Foot</option>
+    </select>
+    <label>To</label>
+    <select id="vTo">
+      <option value="1">Liter</option>
+      <option value="0.001">Milliliter</option>
+      <option value="0.264172">Gallon</option>
+      <option value="0.0353147">Cubic Foot</option>
+    </select>
+    <p class="result" id="vResult"></p>
+  </section>
 
+  <!-- Area -->
+  <section class="converter" id="area">
+    <h2>Area Converter</h2>
+    <label>Amount</label>
+    <input type="number" id="aInput">
+    <label>From</label>
+    <select id="aFrom">
+      <option value="1">Square Meter</option>
+      <option value="0.0001">Hectare</option>
+      <option value="0.000001">Square Kilometer</option>
+      <option value="10.7639">Square Foot</option>
+      <option value="0.000247105">Acre</option>
+    </select>
+    <label>To</label>
+    <select id="aTo">
+      <option value="1">Square Meter</option>
+      <option value="0.0001">Hectare</option>
+      <option value="0.000001">Square Kilometer</option>
+      <option value="10.7639">Square Foot</option>
+      <option value="0.000247105">Acre</option>
+    </select>
+    <p class="result" id="aResult"></p>
+  </section>
+
+  <!-- Time -->
+  <section class="converter" id="time">
+    <h2>Time Converter</h2>
+    <label>Amount</label>
+    <input type="number" id="timeInput">
+    <label>From</label>
+    <select id="timeFrom">
+      <option value="1">Second</option>
+      <option value="60">Minute</option>
+      <option value="3600">Hour</option>
+      <option value="86400">Day</option>
+    </select>
+    <label>To</label>
+    <select id="timeTo">
+      <option value="1">Second</option>
+      <option value="60">Minute</option>
+      <option value="3600">Hour</option>
+      <option value="86400">Day</option>
+    </select>
+    <p class="result" id="timeResult"></p>
+  </section>
+
+  <!-- Energy -->
+  <section class="converter" id="energy">
+    <h2>Energy Converter</h2>
+    <label>Amount</label>
+    <input type="number" id="eInput">
+    <label>From</label>
+    <select id="eFrom">
+      <option value="1">Joule</option>
+      <option value="0.001">Kilojoule</option>
+      <option value="0.000239006">Calorie</option>
+    </select>
+    <label>To</label>
+    <select id="eTo">
+      <option value="1">Joule</option>
+      <option value="0.001">Kilojoule</option>
+      <option value="0.000239006">Calorie</option>
+    </select>
+    <p class="result" id="eResult"></p>
+  </section>
+
+  <!-- Pressure -->
+  <section class="converter" id="pressure">
+    <h2>Pressure Converter</h2>
+    <label>Amount</label>
+    <input type="number" id="pInput">
+    <label>From</label>
+    <select id="pFrom">
+      <option value="1">Pascal</option>
+      <option value="0.001">Kilopascal</option>
+      <option value="0.000145038">PSI</option>
+    </select>
+    <label>To</label>
+    <select id="pTo">
+      <option value="1">Pascal</option>
+      <option value="0.001">Kilopascal</option>
+      <option value="0.000145038">PSI</option>
+    </select>
+    <p class="result" id="pResult"></p>
+  </section>
+
+  <!-- Fuel -->
+  <section class="converter" id="fuel">
+    <h2>Fuel Converter</h2>
+    <label>Amount</label>
+    <input type="number" id="fInput">
+    <label>From</label>
+    <select id="fFrom">
+      <option value="l100">Liters/100km</option>
+      <option value="mpg">Miles per gallon</option>
+    </select>
+    <label>To</label>
+    <select id="fTo">
+      <option value="mpg">Miles per gallon</option>
+      <option value="l100">Liters/100km</option>
+    </select>
+    <p class="result" id="fResult"></p>
+  </section>
 </main>
 
 <footer>
-© 2025 Smart Converter |
-<button id="footerMenu">☰ Menu</button>
+  © 2025 Smart Converter |
+  <button id="footerMenu">☰ Menu</button>
 </footer>
 
 <script src="script.js"></script>
